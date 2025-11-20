@@ -184,5 +184,3 @@ Pranav Viswanathan
 - Create interactive code snippets viewer
 
 ---
-
-Made with love and lots of coffee
