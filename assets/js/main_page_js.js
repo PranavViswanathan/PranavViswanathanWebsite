@@ -141,6 +141,7 @@ async function displayWelcome() {
   await typeText(`Welcome to ${profile.name}'s Terminal Portfolio!`, 20);
   await sleep(300);
   addLine("");
+  await typeText(`To view a more traditional webpage, run webpage-view`)
   await typeText('Type "help" to see available commands', 30);
   addLine("");
   createInputLine();
