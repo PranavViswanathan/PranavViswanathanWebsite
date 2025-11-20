@@ -115,6 +115,8 @@ When I'm not coding, you'll find me exploring new frameworks, diving into ML res
             addLine('');
             await typeText('Type "help" to see available commands', 30);
             addLine('');
+            await typeText('Type website-view to view a traditional website version of my portfolio');
+            addLine('');
             createInputLine();
         }
 
