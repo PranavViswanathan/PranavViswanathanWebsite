@@ -38,7 +38,7 @@ When I'm not coding, you'll find me exploring new frameworks, diving into ML res
         const projects = [
             {
                 name: "BlueBikes-Demand-Prediction",
-                description: "ML-based demand prediction system for Boston's bike-sharing network with comprehensive MLOps pipeline",
+                description: "An end-to-end MLOps platform leveraging distributed orchestration (Apache Airflow), experiment tracking (MLflow), and containerized microservices (Docker) to deliver real-time demand forecasting for Boston's Bluebikes network.",
                 language: "Python",
                 topics: ["machine-learning", "mlops", "airflow", "mlflow"],
                 url: "https://github.com/PranavViswanathan/Optimizing-Bluebikes-Operations-with-Machine-Learning-Based-Demand-Prediction"
@@ -59,7 +59,7 @@ When I'm not coding, you'll find me exploring new frameworks, diving into ML res
             },
             {
                 name: "Aegis Nav",
-                description: "An embedded computer vision system built on Raspberry Pi 3 with custom-compiled OpenCV 3.3.0 for the Speranza Cieca assistive device.",
+                description: "An embedded computer vision system built on Raspberry Pi 3 with custom-compiled OpenCV 3.3.0 for the AegisNav assistive device.",
                 language: "Python",
                 topics: ["raspberry-pi", "OpenCV", "embedded-systems"],
                 url: "https://github.com/PranavViswanathan/AegisNav"
