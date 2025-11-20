@@ -31,10 +31,11 @@ When I'm not coding, you'll find me exploring new frameworks, diving into ML res
         };
 
         const skills = {
-            languages: ["Python", "Java", "JavaScript", "C++", "SQL", "R"],
+            languages: ["Python", "Java", "JavaScript", "C++", "SQL", "R", "PHP"],
             frameworks: ["TensorFlow", "PyTorch", "React", "Node.js", "Django", "Flask"],
-            tools: ["Docker", "Kubernetes", "Git", "AWS", "Apache Airflow", "MLflow"],
-            domains: ["Machine Learning", "MLOps", "Computer Vision", "Data Analysis", "Web Development"]
+            tools: ["Docker", "Kubernetes", "Git", "AWS", "Apache Airflow", "MLflow", "Terraform", "Pulumi", "Git", "Github"],
+            domains: ["Machine Learning", "MLOps", "Computer Vision", "Data Analysis", "Web Development"],
+            cloud: ["AWS", "GCP"]
         };
 
         const projects = [
@@ -307,6 +308,14 @@ When I'm not coding, you'll find me exploring new frameworks, diving into ML res
             });
             toolTags += '</div>';
             addLine(toolTags);
+
+            addLine('<div class="info-item"><span class="label">Cloud-Tech:</span></div>');
+            let cloudTags = '<div class="info-item">';
+            skills.cloud.forEach(cloud => {
+                cloudTags += `<span class="skill-tag">${cloud}</span>`;
+            });
+            cloudTags += '</div>';
+            addLine(cloudTags);
             
             addLine('<div class="info-item"><span class="label">Domains:</span></div>');
             let domainTags = '<div class="info-item">';
