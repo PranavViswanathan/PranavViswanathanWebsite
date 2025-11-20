@@ -8,6 +8,18 @@
    <link rel="icon" type="image/png" href="assets/images/pranav_logo.png">
 </head>
 <body>
+    <div class="loader-container" id="loader">
+    <div class="loader-content">
+        <div class="loader-text">
+            <span class="prompt">pranav@portfolio:~$</span> initializing portfolio<span class="loader-dots">...</span><span class="cursor-blink"></span>
+        </div>
+        <div class="loader-bar">
+            <div class="loader-progress" id="loaderProgress"></div>
+        </div>
+        <div class="loader-percentage" id="loaderPercentage">0%</div>
+    </div>
+</div>
+
     <div class="container">
         <div class="terminal-window">
             <div class="terminal-header">
@@ -261,6 +273,48 @@ Feel free to reach out for collaboration or opportunities!
                 }
             });
         });
+        window.addEventListener('load', function() {
+    let progress = 0;
+    const loaderProgress = document.getElementById('loaderProgress');
+    const loaderPercentage = document.getElementById('loaderPercentage');
+    const loader = document.getElementById('loader');
+    
+    const loadingMessages = [
+        'Loading assets',
+        'Initializing terminal',
+        'Compiling portfolio',
+        'Establishing connection',
+        'Loading projects',
+        'Almost ready'
+    ];
+    
+    let messageIndex = 0;
+    const loaderText = document.querySelector('.loader-text');
+    
+    const interval = setInterval(() => {
+        progress += Math.random() * 15 + 5;
+        
+        if (progress > 100) progress = 100;
+        
+        loaderProgress.style.width = progress + '%';
+        loaderPercentage.textContent = Math.floor(progress) + '%';
+        
+        if (progress >= 100) {
+            clearInterval(interval);
+            setTimeout(() => {
+                loader.classList.add('hidden');
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 500);
+            }, 300);
+        } else if (Math.floor(progress / 16.66) > messageIndex) {
+            messageIndex = Math.floor(progress / 16.66);
+            if (messageIndex < loadingMessages.length) {
+                loaderText.innerHTML = `<span class="prompt">pranav@portfolio:~$</span> ${loadingMessages[messageIndex]}<span class="loader-dots">...</span><span class="cursor-blink"></span>`;
+            }
+        }
+    }, 100);
+});
     </script>
 </body>
 </html>
