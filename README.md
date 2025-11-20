@@ -181,8 +181,8 @@ Pranav Viswanathan
 
 ---
 
-pranav@portfolio:~$ echo "Thanks for checking out my portfolio!"
+```pranav@portfolio:~$ echo "Thanks for checking out my portfolio!"```
 Thanks for checking out my portfolio!
-pranav@portfolio:~$ _
+```pranav@portfolio:~$ _```
 
 Made with love and lots of coffee
