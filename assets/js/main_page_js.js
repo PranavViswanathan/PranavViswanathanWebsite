@@ -229,9 +229,7 @@ When I'm not coding, you'll find me exploring new frameworks, diving into ML res
                 case 'ls':
                     addLine('about.txt  skills.txt  projects/  contact.txt  README.md');
                     break;
-                case 'date':
-                    addLine(new Date().toString());
-                    break;
+                
                 case 'cd ~':
                     clearTerminal();
                     displayWelcome();
