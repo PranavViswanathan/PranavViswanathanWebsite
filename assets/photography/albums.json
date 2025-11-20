@@ -1,0 +1,125 @@
+[
+    {
+        "name": "Northern Lights",
+        "folder": "Northern Lights",
+        "cover": "assets/photography/Northern Lights/PIC_1483.jpg",
+        "photos": [
+            {
+                "filename": "PIC_1437.jpg",
+                "name": "Pic 1437"
+            },
+            {
+                "filename": "PIC_1438.jpg",
+                "name": "Pic 1438"
+            },
+            {
+                "filename": "PIC_1439.jpg",
+                "name": "Pic 1439"
+            },
+            {
+                "filename": "PIC_1440-2.jpg",
+                "name": "Pic 1440 2"
+            },
+            {
+                "filename": "PIC_1440.jpg",
+                "name": "Pic 1440"
+            },
+            {
+                "filename": "PIC_1442.jpg",
+                "name": "Pic 1442"
+            },
+            {
+                "filename": "PIC_1447.jpg",
+                "name": "Pic 1447"
+            },
+            {
+                "filename": "PIC_1449.jpg",
+                "name": "Pic 1449"
+            },
+            {
+                "filename": "PIC_1450.jpg",
+                "name": "Pic 1450"
+            },
+            {
+                "filename": "PIC_1451.jpg",
+                "name": "Pic 1451"
+            },
+            {
+                "filename": "PIC_1452.jpg",
+                "name": "Pic 1452"
+            },
+            {
+                "filename": "PIC_1453.jpg",
+                "name": "Pic 1453"
+            },
+            {
+                "filename": "PIC_1454.jpg",
+                "name": "Pic 1454"
+            },
+            {
+                "filename": "PIC_1458.jpg",
+                "name": "Pic 1458"
+            },
+            {
+                "filename": "PIC_1459.jpg",
+                "name": "Pic 1459"
+            },
+            {
+                "filename": "PIC_1460.jpg",
+                "name": "Pic 1460"
+            },
+            {
+                "filename": "PIC_1462-2.jpg",
+                "name": "Pic 1462 2"
+            },
+            {
+                "filename": "PIC_1462.jpg",
+                "name": "Pic 1462"
+            },
+            {
+                "filename": "PIC_1464.jpg",
+                "name": "Pic 1464"
+            },
+            {
+                "filename": "PIC_1465.jpg",
+                "name": "Pic 1465"
+            },
+            {
+                "filename": "PIC_1466.jpg",
+                "name": "Pic 1466"
+            },
+            {
+                "filename": "PIC_1467.jpg",
+                "name": "Pic 1467"
+            },
+            {
+                "filename": "PIC_1468.jpg",
+                "name": "Pic 1468"
+            },
+            {
+                "filename": "PIC_1470.jpg",
+                "name": "Pic 1470"
+            },
+            {
+                "filename": "PIC_1471.jpg",
+                "name": "Pic 1471"
+            },
+            {
+                "filename": "PIC_1472.jpg",
+                "name": "Pic 1472"
+            },
+            {
+                "filename": "PIC_1473.jpg",
+                "name": "Pic 1473"
+            },
+            {
+                "filename": "PIC_1477.jpg",
+                "name": "Pic 1477"
+            },
+            {
+                "filename": "PIC_1483.jpg",
+                "name": "Pic 1483"
+            }
+        ]
+    }
+]
