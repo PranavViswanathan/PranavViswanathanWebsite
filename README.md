@@ -5,6 +5,10 @@ A sleek, interactive terminal-themed portfolio website showcasing my projects, s
 <br>
 
 ![Screenshot of my website](https://github.com/PranavViswanathan/PranavViswanathanWebsite/blob/main/assets/images/webpage_screenshot.png)
+Terminal view
+
+![Screenshot of traditional version of my website](https://github.com/PranavViswanathan/PranavViswanathanWebsite/blob/main/assets/images/website_trad_view.png)
+Traditional view
 
 ## Overview
 
