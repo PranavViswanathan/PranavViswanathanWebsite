@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--Made with a ton of coffee by Pranav Viswanathan.(https://www.linkedin.com/in/pranav-viswanathan-7976711b7/)-->
     <title>Pranav Viswanathan</title>
-   <link rel="stylesheet" href="assets/css/web_page_style.css">
-   <link rel="icon" type="image/png" href="assets/images/pranav_logo.png">
-</head>
-<body>
+    <link rel="stylesheet" href="assets/css/web_page_style.css" />
+    <link rel="icon" type="image/png" href="assets/images/pranav_logo.png" />
+  </head>
+  <body>
     <div class="loader-container" id="loader">
-    <div class="loader-content">
+      <div class="loader-content">
         <div class="loader-text">
-            <span class="prompt">pranav@portfolio:~$</span> initializing portfolio<span class="loader-dots">...</span><span class="cursor-blink"></span>
+          <span class="prompt">pranav@portfolio:~$</span> initializing
+          portfolio<span class="loader-dots">...</span
+          ><span class="cursor-blink"></span>
         </div>
         <div class="loader-bar">
-            <div class="loader-progress" id="loaderProgress"></div>
+          <div class="loader-progress" id="loaderProgress"></div>
         </div>
         <div class="loader-percentage" id="loaderPercentage">0%</div>
+      </div>
     </div>
-</div>
 
     <div class="container">
-        <div class="terminal-window">
-            <div class="terminal-header">
-                <div class="btn close"></div>
-                <div class="btn minimize"></div>
-                <div class="btn maximize"></div>
-                <div class="terminal-title">pranav@portfolio:~</div>
-            </div>
-            <div class="terminal-body">
-                <pre class="ascii-art">
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <div class="btn close"></div>
+          <div class="btn minimize"></div>
+          <div class="btn maximize"></div>
+          <div class="terminal-title">pranav@portfolio:~</div>
+        </div>
+        <div class="terminal-body">
+          <pre class="ascii-art">
  _______  _______  _______  _        _______                     _________ _______           _______  _        _______ _________          _______  _       
 (  ____ )(  ____ )(  ___  )( (    /|(  ___  )|\     /|  |\     /|\__   __/(  ____ \|\     /|(  ___  )( (    /|(  ___  )\__   __/|\     /|(  ___  )( (    /|
 | (    )|| (    )|| (   ) ||  \  ( || (   ) || )   ( |  | )   ( |   ) (   | (    \/| )   ( || (   ) ||  \  ( || (   ) |   ) (   | )   ( || (   ) ||  \  ( |
@@ -39,284 +41,389 @@
 | (      | (\ (   | (   ) || | \   || (   ) | \ \_/ /    \ \_/ /    | |         ) || || || || (   ) || | \   || (   ) |   | |   | (   ) || (   ) || | \   |
 | )      | ) \ \__| )   ( || )  \  || )   ( |  \   /      \   /  ___) (___/\____) || () () || )   ( || )  \  || )   ( |   | |   | )   ( || )   ( || )  \  |
 |/       |/   \__/|/     \||/    )_)|/     \|   \_/        \_/   \_______/\_______)(_______)|/     \||/    )_)|/     \|   )_(   |/     \||/     \||/    )_)
-                </pre>
-            </div>
+                </pre
+          >
         </div>
+      </div>
 
-        <nav class="nav-menu">
-            <a href="#about" class="nav-link">About</a>
-            <a href="#skills" class="nav-link">Skills</a>
-            <a href="#projects" class="nav-link">Projects</a>
-            <a href="#contact" class="nav-link">Contact</a>
-            <a href="index.html" class="nav-link">Return to terminal</a>
-        </nav>
+      <nav class="nav-menu">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="index.html" class="nav-link">Return to terminal</a>
+      </nav>
 
-        <div class="terminal-window" id="about">
-            <div class="terminal-header">
-                <div class="btn close"></div>
-                <div class="btn minimize"></div>
-                <div class="btn maximize"></div>
-                <div class="terminal-title">about.txt</div>
-            </div>
-            <div class="terminal-body">
-                <div class="section">
-                    <div class="section-header">About Me</div>
-                    <div class="info-grid">
-                        <div class="info-label">Name:</div>
-                        <div class="info-value">Pranav Viswanathan</div>
-                        
-                        <div class="info-label">Title:</div>
-                        <div class="info-value">Software Developer & ML Engineer</div>
-                        
-                        <div class="info-label">Education:</div>
-                        <div class="info-value">MS in Computer Science, Northeastern University</div>
-                        
-                        <div class="info-label">Location:</div>
-                        <div class="info-value">Boston, MA</div>
-                    </div>
-                    
-                    <div class="about-text">
-Hello! I'm Pranav, a Master's student in Computer Science at Northeastern University with a passion for building intelligent systems that solve real-world problems. I love working at the intersection of machine learning and software engineering—taking models from research notebooks to production-grade applications that actually make an impact.
-
-I'm drawn to projects that combine data, algorithms, and infrastructure. Whether it's building end-to-end ML pipelines that predict bike-sharing demand across Boston, developing reinforcement learning agents that learn to race, or creating real time anomaly detection systems for industrial equipment—I'm all about turning complex problems into elegant, scalable solutions. There's something deeply satisfying about watching a well-architected system come together.
-
-When I'm not coding, you'll find me exploring new frameworks, diving into ML research papers, or optimizing my GitHub workflows. I'm currently seeking Software Engineering, Machine Learning and Data Analyst roles where I can continue building systems that bridge machine learning and software engineering.
-                    </div>
-
-                    <div class="resume-buttons">
-                        <a href="assets/resume/PranavViswanathan_SDE_FTE.pdf" target="_blank" class="resume-btn">Software Development Resume</a>
-                        <a href="assets/resume/PranavViswanathan_AIML_FTE.pdf" target="_blank" class="resume-btn">AI/ML Resume</a>
-                    </div>
-                </div>
-            </div>
+      <div class="terminal-window" id="about">
+        <div class="terminal-header">
+          <div class="btn close"></div>
+          <div class="btn minimize"></div>
+          <div class="btn maximize"></div>
+          <div class="terminal-title">about.txt</div>
         </div>
+        <div class="terminal-body">
+          <div class="section">
+            <div class="section-header">About Me</div>
+            <div class="info-grid">
+              <div class="info-label">Name:</div>
+              <div class="info-value">Pranav Viswanathan</div>
 
-        <div class="terminal-window" id="skills">
-            <div class="terminal-header">
-                <div class="btn close"></div>
-                <div class="btn minimize"></div>
-                <div class="btn maximize"></div>
-                <div class="terminal-title">skills.txt</div>
+              <div class="info-label">Title:</div>
+              <div class="info-value">Software Developer & ML Engineer</div>
+
+              <div class="info-label">Education:</div>
+              <div class="info-value">
+                MS in Computer Science, Northeastern University
+              </div>
+
+              <div class="info-label">Location:</div>
+              <div class="info-value">Boston, MA</div>
             </div>
-            <div class="terminal-body">
-                <div class="section">
-                    <div class="section-header">Technical Skills</div>
-                    
-                    <div class="skills-container">
-                        <div class="skill-category">Languages:</div>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">Java</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">C++</span>
-                            <span class="skill-tag">SQL</span>
-                            <span class="skill-tag">R</span>
-                            <span class="skill-tag">PHP</span>
-                        </div>
-                    </div>
 
-                    <div class="skills-container">
-                        <div class="skill-category">Frameworks:</div>
-                        <div class="skill-tags">
-                            <span class="skill-tag">TensorFlow</span>
-                            <span class="skill-tag">PyTorch</span>
-                            <span class="skill-tag">React</span>
-                            <span class="skill-tag">Node.js</span>
-                            <span class="skill-tag">Django</span>
-                            <span class="skill-tag">Flask</span>
-                        </div>
-                    </div>
-
-                    <div class="skills-container">
-                        <div class="skill-category">Tools:</div>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Docker</span>
-                            <span class="skill-tag">Kubernetes</span>
-                            <span class="skill-tag">Git</span>
-                            <span class="skill-tag">AWS</span>
-                            <span class="skill-tag">Apache Airflow</span>
-                            <span class="skill-tag">MLflow</span>
-                            <span class="skill-tag">Terraform</span>
-                            <span class="skill-tag">Pulumi</span>
-                            <span class="skill-tag">GitHub</span>
-                        </div>
-                    </div>
-
-                    <div class="skills-container">
-                        <div class="skill-category">Cloud Technology:</div>
-                        <div class="skill-tags">
-                            <span class="skill-tag">AWS</span>
-                            <span class="skill-tag">GCP</span>
-                        </div>
-                    </div>
-
-                    <div class="skills-container">
-                        <div class="skill-category">Domains:</div>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Machine Learning</span>
-                            <span class="skill-tag">MLOps</span>
-                            <span class="skill-tag">Computer Vision</span>
-                            <span class="skill-tag">Data Analysis</span>
-                            <span class="skill-tag">Web Development</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="about-text">
+              Hello! I'm Pranav, a Master's student in Computer Science at
+              Northeastern University with a passion for building intelligent
+              systems that solve real-world problems. I love working at the
+              intersection of machine learning and software engineering—taking
+              models from research notebooks to production-grade applications
+              that actually make an impact. I'm drawn to projects that combine
+              data, algorithms, and infrastructure. Whether it's building
+              end-to-end ML pipelines that predict bike-sharing demand across
+              Boston, developing reinforcement learning agents that learn to
+              race, or creating real time anomaly detection systems for
+              industrial equipment—I'm all about turning complex problems into
+              elegant, scalable solutions. There's something deeply satisfying
+              about watching a well-architected system come together. When I'm
+              not coding, you'll find me exploring new frameworks, diving into
+              ML research papers, or optimizing my GitHub workflows. I'm
+              currently seeking Software Engineering, Machine Learning and Data
+              Analyst roles where I can continue building systems that bridge
+              machine learning and software engineering.
             </div>
+
+            <div class="resume-buttons">
+              <a
+                href="assets/resume/PranavViswanathan_SDE_FTE.pdf"
+                target="_blank"
+                class="resume-btn"
+                >Software Development Resume</a
+              >
+              <a
+                href="assets/resume/PranavViswanathan_AIML_FTE.pdf"
+                target="_blank"
+                class="resume-btn"
+                >AI/ML Resume</a
+              >
+            </div>
+          </div>
         </div>
+      </div>
 
-        <div class="terminal-window" id="projects">
-            <div class="terminal-header">
-                <div class="btn close"></div>
-                <div class="btn minimize"></div>
-                <div class="btn maximize"></div>
-                <div class="terminal-title">projects/</div>
-            </div>
-            <div class="terminal-body">
-                <div class="section">
-                    <div class="section-header">Featured Projects</div>
-                    
-                    <div class="project-card">
-                        <div class="project-name">BlueBikes-Demand-Prediction</div>
-                        <div class="project-desc">An end-to-end MLOps platform leveraging distributed orchestration (Apache Airflow), experiment tracking (MLflow), and containerized microservices (Docker) to deliver real-time demand forecasting for Boston's Bluebikes network.</div>
-                        <div class="project-meta">Language: Python</div>
-                        <div class="project-meta">Topics: machine-learning, mlops, airflow, mlflow</div>
-                        <a href="https://github.com/PranavViswanathan/Optimizing-Bluebikes-Operations-with-Machine-Learning-Based-Demand-Prediction" target="_blank" class="project-link">View on GitHub →</a>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-name">Neuro Pilot</div>
-                        <div class="project-desc">A comparative reinforcement learning framework evaluating Q-Learning versus Deep Q-Networks (DQN) on the Gymnasium CarRacing-v3 environment</div>
-                        <div class="project-meta">Language: Python</div>
-                        <div class="project-meta">Topics: reinforcement-learning, deep-learning, pytorch, Deep Q-Networks</div>
-                        <a href="https://github.com/PranavViswanathan/NeuroPilot" target="_blank" class="project-link">View on GitHub →</a>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-name">Image Manipulation Toolkit</div>
-                        <div class="project-desc">A comprehensive image processing toolkit built entirely in Java featuring both CLI and GUI interfaces for advanced image manipulation.</div>
-                        <div class="project-meta">Language: Java</div>
-                        <div class="project-meta">Topics: Java, MVC, Image-Processing</div>
-                        <a href="https://github.com/PranavViswanathan/Image-Manipulation-Toolkit" target="_blank" class="project-link">View on GitHub →</a>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-name">Aegis Nav</div>
-                        <div class="project-desc">An embedded computer vision system built on Raspberry Pi 3 with custom-compiled OpenCV 3.3.0 for the AegisNav assistive device.</div>
-                        <div class="project-meta">Language: Python</div>
-                        <div class="project-meta">Topics: raspberry-pi, OpenCV, embedded-systems</div>
-                        <a href="https://github.com/PranavViswanathan/AegisNav" target="_blank" class="project-link">View on GitHub →</a>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-name">SQL Injection Simulation</div>
-                        <div class="project-desc">An educational cybersecurity simulation demonstrating SQL injection (SQLI) attack vectors and their exploitation techniques for database manipulation.</div>
-                        <div class="project-meta">Language: PHP</div>
-                        <div class="project-meta">Topics: PHP, SQL, network-security, simulation</div>
-                        <a href="https://github.com/PranavViswanathan/SQL_Injection_Simulation" target="_blank" class="project-link">View on GitHub →</a>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-name">PranavaOku</div>
-                        <div class="project-desc">A lightweight, self-hosted cloud platform built with Flask and Pulumi Automation API for deploying static sites (S3) and virtual machines (EC2) on AWS.</div>
-                        <div class="project-meta">Language: Python</div>
-                        <div class="project-meta">Topics: IaaS, AWS, Pulumi</div>
-                        <a href="https://github.com/PranavViswanathan/PranavaOku" target="_blank" class="project-link">View on GitHub →</a>
-                    </div>
-                </div>
-            </div>
+      <div class="terminal-window" id="skills">
+        <div class="terminal-header">
+          <div class="btn close"></div>
+          <div class="btn minimize"></div>
+          <div class="btn maximize"></div>
+          <div class="terminal-title">skills.txt</div>
         </div>
+        <div class="terminal-body">
+          <div class="section">
+            <div class="section-header">Technical Skills</div>
 
-        <div class="terminal-window" id="contact">
-            <div class="terminal-header">
-                <div class="btn close"></div>
-                <div class="btn minimize"></div>
-                <div class="btn maximize"></div>
-                <div class="terminal-title">contact.txt</div>
+            <div class="skills-container">
+              <div class="skill-category">Languages:</div>
+              <div class="skill-tags">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">C++</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">R</span>
+                <span class="skill-tag">PHP</span>
+              </div>
             </div>
-            <div class="terminal-body">
-                <div class="section">
-                    <div class="section-header">Contact Information</div>
-                    
-                    <div class="contact-links">
-                        <div class="contact-item">
-                            <div class="info-label">Email:</div>
-                            <a href="mailto:viswanathan.pran@northeastern.edu" class="contact-link">viswanathan.pran@northeastern.edu</a>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="info-label">GitHub:</div>
-                            <a href="https://github.com/PranavViswanathan" target="_blank" class="contact-link">github.com/PranavViswanathan</a>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="info-label">LinkedIn:</div>
-                            <a href="https://linkedin.com/in/pranav-viswanathan-7976711b7/" target="_blank" class="contact-link">linkedin.com/in/pranav-viswanathan-7976711b7/</a>
-                        </div>
-                    </div>
 
-                    <div class="about-text" style="margin-top: 30px; color: #27c93f;">
-Feel free to reach out for collaboration or opportunities!
-                    </div>
-                </div>
+            <div class="skills-container">
+              <div class="skill-category">Frameworks:</div>
+              <div class="skill-tags">
+                <span class="skill-tag">TensorFlow</span>
+                <span class="skill-tag">PyTorch</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Django</span>
+                <span class="skill-tag">Flask</span>
+              </div>
             </div>
+
+            <div class="skills-container">
+              <div class="skill-category">Tools:</div>
+              <div class="skill-tags">
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">Kubernetes</span>
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">AWS</span>
+                <span class="skill-tag">Apache Airflow</span>
+                <span class="skill-tag">MLflow</span>
+                <span class="skill-tag">Terraform</span>
+                <span class="skill-tag">Pulumi</span>
+                <span class="skill-tag">GitHub</span>
+              </div>
+            </div>
+
+            <div class="skills-container">
+              <div class="skill-category">Cloud Technology:</div>
+              <div class="skill-tags">
+                <span class="skill-tag">AWS</span>
+                <span class="skill-tag">GCP</span>
+              </div>
+            </div>
+
+            <div class="skills-container">
+              <div class="skill-category">Domains:</div>
+              <div class="skill-tags">
+                <span class="skill-tag">Machine Learning</span>
+                <span class="skill-tag">MLOps</span>
+                <span class="skill-tag">Computer Vision</span>
+                <span class="skill-tag">Data Analysis</span>
+                <span class="skill-tag">Web Development</span>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <div class="terminal-window" id="projects">
+        <div class="terminal-header">
+          <div class="btn close"></div>
+          <div class="btn minimize"></div>
+          <div class="btn maximize"></div>
+          <div class="terminal-title">projects/</div>
+        </div>
+        <div class="terminal-body">
+          <div class="section">
+            <div class="section-header">Featured Projects</div>
+
+            <div class="project-card">
+              <div class="project-name">BlueBikes-Demand-Prediction</div>
+              <div class="project-desc">
+                An end-to-end MLOps platform leveraging distributed
+                orchestration (Apache Airflow), experiment tracking (MLflow),
+                and containerized microservices (Docker) to deliver real-time
+                demand forecasting for Boston's Bluebikes network.
+              </div>
+              <div class="project-meta">Language: Python</div>
+              <div class="project-meta">
+                Topics: machine-learning, mlops, airflow, mlflow
+              </div>
+              <a
+                href="https://github.com/PranavViswanathan/Optimizing-Bluebikes-Operations-with-Machine-Learning-Based-Demand-Prediction"
+                target="_blank"
+                class="project-link"
+                >View on GitHub →</a
+              >
+            </div>
+
+            <div class="project-card">
+              <div class="project-name">Neuro Pilot</div>
+              <div class="project-desc">
+                A comparative reinforcement learning framework evaluating
+                Q-Learning versus Deep Q-Networks (DQN) on the Gymnasium
+                CarRacing-v3 environment
+              </div>
+              <div class="project-meta">Language: Python</div>
+              <div class="project-meta">
+                Topics: reinforcement-learning, deep-learning, pytorch, Deep
+                Q-Networks
+              </div>
+              <a
+                href="https://github.com/PranavViswanathan/NeuroPilot"
+                target="_blank"
+                class="project-link"
+                >View on GitHub →</a
+              >
+            </div>
+
+            <div class="project-card">
+              <div class="project-name">Image Manipulation Toolkit</div>
+              <div class="project-desc">
+                A comprehensive image processing toolkit built entirely in Java
+                featuring both CLI and GUI interfaces for advanced image
+                manipulation.
+              </div>
+              <div class="project-meta">Language: Java</div>
+              <div class="project-meta">
+                Topics: Java, MVC, Image-Processing
+              </div>
+              <a
+                href="https://github.com/PranavViswanathan/Image-Manipulation-Toolkit"
+                target="_blank"
+                class="project-link"
+                >View on GitHub →</a
+              >
+            </div>
+
+            <div class="project-card">
+              <div class="project-name">Aegis Nav</div>
+              <div class="project-desc">
+                An embedded computer vision system built on Raspberry Pi 3 with
+                custom-compiled OpenCV 3.3.0 for the AegisNav assistive device.
+              </div>
+              <div class="project-meta">Language: Python</div>
+              <div class="project-meta">
+                Topics: raspberry-pi, OpenCV, embedded-systems
+              </div>
+              <a
+                href="https://github.com/PranavViswanathan/AegisNav"
+                target="_blank"
+                class="project-link"
+                >View on GitHub →</a
+              >
+            </div>
+
+            <div class="project-card">
+              <div class="project-name">SQL Injection Simulation</div>
+              <div class="project-desc">
+                An educational cybersecurity simulation demonstrating SQL
+                injection (SQLI) attack vectors and their exploitation
+                techniques for database manipulation.
+              </div>
+              <div class="project-meta">Language: PHP</div>
+              <div class="project-meta">
+                Topics: PHP, SQL, network-security, simulation
+              </div>
+              <a
+                href="https://github.com/PranavViswanathan/SQL_Injection_Simulation"
+                target="_blank"
+                class="project-link"
+                >View on GitHub →</a
+              >
+            </div>
+
+            <div class="project-card">
+              <div class="project-name">PranavaOku</div>
+              <div class="project-desc">
+                A lightweight, self-hosted cloud platform built with Flask and
+                Pulumi Automation API for deploying static sites (S3) and
+                virtual machines (EC2) on AWS.
+              </div>
+              <div class="project-meta">Language: Python</div>
+              <div class="project-meta">Topics: IaaS, AWS, Pulumi</div>
+              <a
+                href="https://github.com/PranavViswanathan/PranavaOku"
+                target="_blank"
+                class="project-link"
+                >View on GitHub →</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="terminal-window" id="contact">
+        <div class="terminal-header">
+          <div class="btn close"></div>
+          <div class="btn minimize"></div>
+          <div class="btn maximize"></div>
+          <div class="terminal-title">contact.txt</div>
+        </div>
+        <div class="terminal-body">
+          <div class="section">
+            <div class="section-header">Contact Information</div>
+
+            <div class="contact-links">
+              <div class="contact-item">
+                <div class="info-label">Email:</div>
+                <a
+                  href="mailto:viswanathan.pran@northeastern.edu"
+                  class="contact-link"
+                  >viswanathan.pran@northeastern.edu</a
+                >
+              </div>
+
+              <div class="contact-item">
+                <div class="info-label">GitHub:</div>
+                <a
+                  href="https://github.com/PranavViswanathan"
+                  target="_blank"
+                  class="contact-link"
+                  >github.com/PranavViswanathan</a
+                >
+              </div>
+
+              <div class="contact-item">
+                <div class="info-label">LinkedIn:</div>
+                <a
+                  href="https://linkedin.com/in/pranav-viswanathan-7976711b7/"
+                  target="_blank"
+                  class="contact-link"
+                  >linkedin.com/in/pranav-viswanathan-7976711b7/</a
+                >
+              </div>
+            </div>
+
+            <div class="about-text" style="margin-top: 30px; color: #27c93f">
+              Feel free to reach out for collaboration or opportunities!
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
             });
+          }
         });
-        window.addEventListener('load', function() {
-    let progress = 0;
-    const loaderProgress = document.getElementById('loaderProgress');
-    const loaderPercentage = document.getElementById('loaderPercentage');
-    const loader = document.getElementById('loader');
-    
-    const loadingMessages = [
-        'Loading assets',
-        'Initializing terminal',
-        'Compiling portfolio',
-        'Establishing connection',
-        'Loading projects',
-        'Almost ready'
-    ];
-    
-    let messageIndex = 0;
-    const loaderText = document.querySelector('.loader-text');
-    
-    const interval = setInterval(() => {
-        progress += Math.random() * 15 + 5;
-        
-        if (progress > 100) progress = 100;
-        
-        loaderProgress.style.width = progress + '%';
-        loaderPercentage.textContent = Math.floor(progress) + '%';
-        
-        if (progress >= 100) {
+      });
+      window.addEventListener("load", function () {
+        let progress = 0;
+        const loaderProgress = document.getElementById("loaderProgress");
+        const loaderPercentage = document.getElementById("loaderPercentage");
+        const loader = document.getElementById("loader");
+
+        const loadingMessages = [
+          "Loading assets",
+          "Initializing terminal",
+          "Compiling portfolio",
+          "Establishing connection",
+          "Loading projects",
+          "Almost ready",
+        ];
+
+        let messageIndex = 0;
+        const loaderText = document.querySelector(".loader-text");
+
+        const interval = setInterval(() => {
+          progress += Math.random() * 15 + 5;
+
+          if (progress > 100) progress = 100;
+
+          loaderProgress.style.width = progress + "%";
+          loaderPercentage.textContent = Math.floor(progress) + "%";
+
+          if (progress >= 100) {
             clearInterval(interval);
             setTimeout(() => {
-                loader.classList.add('hidden');
-                setTimeout(() => {
-                    loader.style.display = 'none';
-                }, 500);
+              loader.classList.add("hidden");
+              setTimeout(() => {
+                loader.style.display = "none";
+              }, 500);
             }, 300);
-        } else if (Math.floor(progress / 16.66) > messageIndex) {
+          } else if (Math.floor(progress / 16.66) > messageIndex) {
             messageIndex = Math.floor(progress / 16.66);
             if (messageIndex < loadingMessages.length) {
-                loaderText.innerHTML = `<span class="prompt">pranav@portfolio:~$</span> ${loadingMessages[messageIndex]}<span class="loader-dots">...</span><span class="cursor-blink"></span>`;
+              loaderText.innerHTML = `<span class="prompt">pranav@portfolio:~$</span> ${loadingMessages[messageIndex]}<span class="loader-dots">...</span><span class="cursor-blink"></span>`;
             }
-        }
-    }, 100);
-});
+          }
+        }, 100);
+      });
     </script>
-</body>
+  </body>
 </html>
