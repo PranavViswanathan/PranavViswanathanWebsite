@@ -286,9 +286,11 @@ async function executeCommand(cmd) {
     case "photography-page-viewer":
       window.open("photography.html");
       addLine(`<span class="success"> Opening albums...</span>`);
+      break;
     default:
       addLine(`<span class="error">Command not found: ${command}</span>`);
       addLine('Type "help" to see available commands');
+      break;
   }
   addLine("");
 }

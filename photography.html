@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pranav's Photography</title>
-    <link rel="icon" type="image/png" href="assets/images/pranav_logo.png" />
+    <title>Pranav - Photography</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <style>
         :root {
@@ -291,6 +290,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            opacity: 1;
             transition: opacity 0.5s ease;
         }
 
@@ -428,6 +428,13 @@
         let albums = [];
         let currentAlbum = null;
 
+        function showLoader() {
+            const overlay = document.getElementById('loaderOverlay');
+            overlay.style.display = 'flex';
+            overlay.classList.remove('hidden');
+            overlay.style.opacity = '1';
+        }
+
         function updateLoader(percentage, status) {
             document.getElementById('loaderBar').style.width = percentage + '%';
             document.getElementById('loaderPercentage').textContent = percentage + '%';
@@ -520,40 +527,84 @@
         function openAlbum(album) {
             currentAlbum = album;
             
-            document.getElementById('albumsView').style.display = 'none';
-            document.getElementById('photosView').style.display = 'block';
-            document.getElementById('backButton').style.display = 'block';
-            document.getElementById('headerTitle').textContent = `$ ${album.name}`;
+            showLoader();
+            updateLoader(0, 'Loading album');
             
-            const photosGrid = document.getElementById('photosGrid');
-            photosGrid.innerHTML = '';
-            
-            const downloadSection = document.createElement('div');
-            downloadSection.className = 'album-download-section';
-            downloadSection.innerHTML = `
-                <button class="album-download-btn" id="downloadAlbumBtn" onclick="downloadAlbum()">
-                    Download Entire Album as ZIP
-                </button>
-                <div class="download-progress" id="downloadProgress"></div>
-            `;
-            photosGrid.appendChild(downloadSection);
-            
-            album.photos.forEach(photo => {
-                const photoUrl = `assets/photography/${album.folder}/${photo.filename}`;
+            setTimeout(() => {
+                document.getElementById('albumsView').style.display = 'none';
+                document.getElementById('photosView').style.display = 'block';
+                document.getElementById('backButton').style.display = 'block';
+                document.getElementById('headerTitle').textContent = `$ ${album.name}`;
                 
-                const photoCard = document.createElement('div');
-                photoCard.className = 'photo-card';
+                updateLoader(20, 'Preparing photo grid');
                 
-                photoCard.innerHTML = `
-                    <img src="${photoUrl}" alt="${photo.name}" onclick="openLightbox('${photoUrl}')">
-                    <div class="photo-actions">
-                        <button class="view-btn" onclick="openLightbox('${photoUrl}')">View</button>
-                        <button class="download-btn" onclick="downloadPhoto('${photoUrl}', '${photo.filename}')">Download</button>
-                    </div>
+                const photosGrid = document.getElementById('photosGrid');
+                photosGrid.innerHTML = '';
+                
+                const downloadSection = document.createElement('div');
+                downloadSection.className = 'album-download-section';
+                downloadSection.innerHTML = `
+                    <button class="album-download-btn" id="downloadAlbumBtn" onclick="downloadAlbum()">
+                         Download Entire Album as ZIP
+                    </button>
+                    <div class="download-progress" id="downloadProgress"></div>
                 `;
+                photosGrid.appendChild(downloadSection);
                 
-                photosGrid.appendChild(photoCard);
-            });
+                updateLoader(40, 'Loading photos');
+                
+                const photoPromises = [];
+                const totalPhotos = album.photos.length;
+                let loadedPhotos = 0;
+                
+                album.photos.forEach((photo, index) => {
+                    const photoUrl = `assets/photography/${album.folder}/${photo.filename}`;
+                    
+                    const photoCard = document.createElement('div');
+                    photoCard.className = 'photo-card';
+                    
+                    photoCard.innerHTML = `
+                        <img src="${photoUrl}" alt="${photo.name}" onclick="openLightbox('${photoUrl}')" style="opacity: 0;">
+                        <div class="photo-actions">
+                            <button class="view-btn" onclick="openLightbox('${photoUrl}')">View</button>
+                            <button class="download-btn" onclick="downloadPhoto('${photoUrl}', '${photo.filename}')">Download</button>
+                        </div>
+                    `;
+                    
+                    photosGrid.appendChild(photoCard);
+                    
+                    const img = photoCard.querySelector('img');
+                    const loadPromise = new Promise((resolve) => {
+                        img.onload = () => {
+                            loadedPhotos++;
+                            const progress = 40 + Math.floor((loadedPhotos / totalPhotos) * 50);
+                            updateLoader(progress, `Loading photos (${loadedPhotos}/${totalPhotos})`);
+                            img.style.transition = 'opacity 0.3s ease';
+                            img.style.opacity = '1';
+                            resolve();
+                        };
+                        img.onerror = () => {
+                            loadedPhotos++;
+                            const progress = 40 + Math.floor((loadedPhotos / totalPhotos) * 50);
+                            updateLoader(progress, `Loading photos (${loadedPhotos}/${totalPhotos})`);
+                            img.style.opacity = '1';
+                            resolve();
+                        };
+                    });
+                    
+                    photoPromises.push(loadPromise);
+                });
+                
+                Promise.all(photoPromises).then(() => {
+                    updateLoader(95, 'Finalizing');
+                    setTimeout(() => {
+                        updateLoader(100, 'Complete');
+                        setTimeout(() => {
+                            hideLoader();
+                        }, 200);
+                    }, 200);
+                });
+            }, 100);
         }
 
         async function downloadAlbum() {
@@ -614,7 +665,7 @@
                 
                 setTimeout(() => {
                     downloadBtn.disabled = false;
-                    downloadBtn.textContent = '📦 Download Entire Album as ZIP';
+                    downloadBtn.textContent = 'Download Entire Album as ZIP';
                     progressDiv.textContent = '';
                 }, 3000);
                 
@@ -622,7 +673,7 @@
                 console.error('Error creating ZIP:', error);
                 progressDiv.textContent = '✗ Download failed. Please try again.';
                 downloadBtn.disabled = false;
-                downloadBtn.textContent = '📦 Download Entire Album as ZIP';
+                downloadBtn.textContent = 'Download Entire Album as ZIP';
             }
         }
 
