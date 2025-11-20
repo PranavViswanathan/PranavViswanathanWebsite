@@ -172,9 +172,14 @@ When I'm not coding, you'll find me exploring new frameworks, diving into ML res
         }
 
         async function executeCommand(cmd) {
-            if (cmd =='cd ~'){
+            if (cmd === 'cd ~'){
+                const currentInput = document.getElementById('user-input');
+                if (currentInput) {
+                    currentInput.removeEventListener('keydown', handleInput);
+                    currentInput.parentElement.remove();
+                }
                 clearTerminal();
-                displayWelcome();
+                await displayWelcome();
                 return;
             }
             const parts = cmd.split(' ');
@@ -233,6 +238,12 @@ When I'm not coding, you'll find me exploring new frameworks, diving into ML res
                     clearTerminal();
                     displayWelcome();
                     break;
+                case 'sudo':
+                    hackerboi();
+                    break;
+                // case 'play-game':
+                //     game();
+                //     break;
                 default:
                     addLine(`<span class="error">Command not found: ${command}</span>`);
                     addLine('Type "help" to see available commands');
@@ -250,6 +261,7 @@ When I'm not coding, you'll find me exploring new frameworks, diving into ML res
                 { cmd: 'github', desc: 'Open my GitHub profile' },
                 { cmd: 'resume', desc: 'View my resume' },
                 { cmd: 'clear', desc: 'Clear the terminal' },
+                //{ cmd: 'play-game', desc: 'Play a quick game of hangman'},
                 { cmd: 'help', desc: 'Show this help message' },
 
             ];
@@ -333,5 +345,175 @@ When I'm not coding, you'll find me exploring new frameworks, diving into ML res
         function clearTerminal() {
             terminal.innerHTML = '';
         }
+
+        function hackerboi(){
+            addLine(`<span class="error">AH HA! We have a hacker here don't we?</span>`);
+        }
+
+        function game() {
+    const words = [
+        'python', 'javascript', 'terminal', 'machine', 'learning', 'docker', 
+        'kubernetes', 'algorithm', 'database', 'software', 'engineer', 'computer',
+        'network', 'security', 'pipeline', 'framework', 'react', 'github'
+    ];
+    
+    const word = words[Math.floor(Math.random() * words.length)];
+    let guessedLetters = [];
+    let wrongGuesses = 0;
+    const maxWrongs = 6;
+    
+    const hangmanStages = [
+        `
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========`,
+        `
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========`,
+        `
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========`,
+        `
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========`,
+        `
+  +---+
+  |   |
+  O   |
+ /|\\  |
+      |
+      |
+=========`,
+        `
+  +---+
+  |   |
+  O   |
+ /|\\  |
+ /    |
+      |
+=========`,
+        `
+  +---+
+  |   |
+  O   |
+ /|\\  |
+ / \\  |
+      |
+=========`
+    ];
+    
+    function displayWord() {
+        return word.split('').map(letter => 
+            guessedLetters.includes(letter) ? letter : '_'
+        ).join(' ');
+    }
+    
+    function checkWin() {
+        return word.split('').every(letter => guessedLetters.includes(letter));
+    }
+    
+    function displayGame() {
+        addLine('<div class="section-title">HANGMAN GAME</div>');
+        addLine(`<pre class="ascii-art">${hangmanStages[wrongGuesses]}</pre>`);
+        addLine(`<div class="info-item"><span class="label">Word:</span><span class="value">${displayWord()}</span></div>`);
+        addLine(`<div class="info-item"><span class="label">Wrong guesses:</span><span class="error">${wrongGuesses}/${maxWrongs}</span></div>`);
+        if (guessedLetters.length > 0) {
+            addLine(`<div class="info-item"><span class="label">Guessed:</span><span class="value">${guessedLetters.join(', ')}</span></div>`);
+        }
+        addLine('');
+    }
+    
+    function playHangman(letter) {
+        if (!letter || letter.length !== 1 || !/[a-z]/.test(letter)) {
+            addLine(`<span class="error">Please enter a single letter (a-z)</span>`);
+            addLine('');
+            promptGuess();
+            return;
+        }
+        
+        if (guessedLetters.includes(letter)) {
+            addLine(`<span class="error">You already guessed '${letter}'!</span>`);
+            addLine('');
+            promptGuess();
+            return;
+        }
+        
+        guessedLetters.push(letter);
+        
+        if (word.includes(letter)) {
+            addLine(`<span class="success">Correct! '${letter}' is in the word!</span>`);
+        } else {
+            wrongGuesses++;
+            addLine(`<span class="error">Wrong! '${letter}' is not in the word.</span>`);
+        }
+        addLine('');
+        
+        if (checkWin()) {
+            displayGame();
+            addLine(`<span class="success">🎉 Congratulations! You won! The word was '${word}'!</span>`);
+            addLine('');
+            resumeNormalInput();
+        } else if (wrongGuesses >= maxWrongs) {
+            displayGame();
+            addLine(`<span class="error">💀 Game Over! The word was '${word}'.</span>`);
+            addLine('');
+            resumeNormalInput();
+        } else {
+            displayGame();
+            promptGuess();
+        }
+    }
+    
+    function promptGuess() {
+        const inputContainer = document.createElement('div');
+        inputContainer.className = 'input-line';
+        inputContainer.innerHTML = `
+            <span class="prompt">guess a letter:</span>
+            <input type="text" id="game-input" maxlength="1" autofocus>
+        `;
+        terminal.appendChild(inputContainer);
+        
+        const input = document.getElementById('game-input');
+        input.focus();
+        
+        input.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                const guess = input.value.trim().toLowerCase();
+                addLine(`<span class="prompt">guess a letter:</span> <span class="command">${input.value}</span>`);
+                input.removeEventListener('keydown', arguments.callee);
+                input.parentElement.remove();
+                playHangman(guess);
+            }
+        });
+        
+        terminal.scrollTop = terminal.scrollHeight;
+    }
+    
+    function resumeNormalInput() {
+        createInputLine();
+    }
+    
+    displayGame();
+    promptGuess();
+}
 
         displayWelcome();
