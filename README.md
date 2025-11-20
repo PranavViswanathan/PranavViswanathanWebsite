@@ -54,7 +54,7 @@ The website embraces a hacker/developer aesthetic with:
 - GitHub Pages: Static hosting (or your hosting choice)
 
 ## Project Structure
-
+```
 portfolio/
 ├── index.html                  Main interactive terminal page
 ├── webpage.html                Static webpage view
@@ -70,7 +70,7 @@ portfolio/
 │       ├── PranavViswanathan_SDE_FTE.pdf
 │       └── PranavViswanathan_AIML_FTE.pdf
 └── README.md
-
+```
 ## Setup & Installation
 
 1. Clone the repository
