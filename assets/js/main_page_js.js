@@ -240,7 +240,7 @@ When I'm not coding, you'll find me exploring new frameworks, diving into ML res
                     hackerboi();
                     break;
                 case 'webpage-view':
-                    window.open('webpage.html', '_blank');
+                    window.open('webpage.html');
                     addLine(`<span class="success">Opening webpage view...</span>`);
                     break;
                 // case 'play-game':
