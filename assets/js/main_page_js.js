@@ -108,7 +108,7 @@ When I'm not coding, you'll find me exploring new frameworks, diving into ML res
             await sleep(500);
             addLine(`<pre class="ascii-art">${asciiArt}</pre>`);
             await sleep(300);
-            await typeText("Initializing portfolio...", 20);
+            //await typeText("Initializing portfolio...", 20);
             await sleep(500);
             await typeText(`Welcome to ${profile.name}'s Terminal Portfolio!`, 20);
             await sleep(300);
