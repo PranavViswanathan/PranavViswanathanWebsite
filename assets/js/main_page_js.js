@@ -283,6 +283,9 @@ async function executeCommand(cmd) {
     // case 'play-game':
     //     game();
     //     break;
+    case "photography-page-viewer":
+      window.open("photography.html");
+      addLine(`<span class="success"> Opening albums...</span>`);
     default:
       addLine(`<span class="error">Command not found: ${command}</span>`);
       addLine('Type "help" to see available commands');

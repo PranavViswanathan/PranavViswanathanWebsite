@@ -278,9 +278,130 @@
             background: var(--secondary-color);
             color: var(--bg-color);
         }
+
+        .loader-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-color);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-content {
+            text-align: center;
+        }
+
+        .loader-text {
+            color: var(--primary-color);
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .loader-bar-container {
+            width: 400px;
+            max-width: 80vw;
+            height: 30px;
+            border: 2px solid var(--secondary-color);
+            border-radius: 5px;
+            overflow: hidden;
+            background: var(--window-color);
+            position: relative;
+        }
+
+        .loader-bar {
+            height: 100%;
+            background: linear-gradient(90deg, 
+                var(--primary-color) 0%, 
+                var(--secondary-color) 50%, 
+                var(--primary-color) 100%);
+            width: 0%;
+            transition: width 0.3s ease;
+            position: relative;
+            animation: shimmer 1.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -400px 0;
+            }
+            100% {
+                background-position: 400px 0;
+            }
+        }
+
+        .loader-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.3) 50%, 
+                transparent 100%);
+            animation: scan 1s infinite;
+        }
+
+        @keyframes scan {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        .loader-percentage {
+            color: var(--accent-color);
+            font-size: 24px;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .loader-status {
+            color: var(--secondary-color);
+            font-size: 14px;
+            margin-top: 10px;
+            height: 20px;
+        }
+
+        .typing-dots::after {
+            content: '';
+            animation: typing 1.5s infinite;
+        }
+
+        @keyframes typing {
+            0%, 20% { content: '.'; }
+            40% { content: '..'; }
+            60%, 100% { content: '...'; }
+        }
     </style>
 </head>
 <body>
+    <div class="loader-overlay" id="loaderOverlay">
+        <div class="loader-content">
+            <div class="loader-text">$ Loading Photography Portfolio</div>
+            <div class="loader-bar-container">
+                <div class="loader-bar" id="loaderBar"></div>
+            </div>
+            <div class="loader-percentage" id="loaderPercentage">0%</div>
+            <div class="loader-status typing-dots" id="loaderStatus">Initializing</div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="header">
             <button class="back-button" id="backButton" style="display: none;">← Back to Albums</button>
@@ -306,6 +427,22 @@
         let albums = [];
         let currentAlbum = null;
 
+        function updateLoader(percentage, status) {
+            document.getElementById('loaderBar').style.width = percentage + '%';
+            document.getElementById('loaderPercentage').textContent = percentage + '%';
+            document.getElementById('loaderStatus').textContent = status;
+        }
+
+        function hideLoader() {
+            const overlay = document.getElementById('loaderOverlay');
+            setTimeout(() => {
+                overlay.classList.add('hidden');
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                }, 500);
+            }, 300);
+        }
+
         const urlParams = new URLSearchParams(window.location.search);
         const themeParam = urlParams.get('theme');
 
@@ -323,12 +460,30 @@
         }
 
         async function loadAlbums() {
+            updateLoader(10, 'Connecting to server');
+            
             try {
+                updateLoader(30, 'Fetching albums data');
                 const response = await fetch('assets/photography/albums.json');
+                
+                updateLoader(60, 'Processing album information');
                 albums = await response.json();
+                
+                updateLoader(80, 'Rendering albums');
+                await new Promise(resolve => setTimeout(resolve, 300));
+                
                 displayAlbums();
+                
+                updateLoader(100, 'Complete');
+                await new Promise(resolve => setTimeout(resolve, 200));
+                
+                hideLoader();
             } catch (error) {
                 console.error('Failed to load albums:', error);
+                updateLoader(100, 'Error loading albums');
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                hideLoader();
+                
                 document.getElementById('albumsView').innerHTML = `
                     <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--accent-color);">
                         <h2>Error loading albums</h2>
@@ -376,7 +531,7 @@
             downloadSection.className = 'album-download-section';
             downloadSection.innerHTML = `
                 <button class="album-download-btn" id="downloadAlbumBtn" onclick="downloadAlbum()">
-                    📦 Download Entire Album as ZIP
+                    Download Entire Album as ZIP
                 </button>
                 <div class="download-progress" id="downloadProgress"></div>
             `;
@@ -505,7 +660,12 @@
             }
         });
 
-        loadAlbums();
+        window.addEventListener('DOMContentLoaded', function() {
+            updateLoader(5, 'Initializing');
+            setTimeout(() => {
+                loadAlbums();
+            }, 100);
+        });
     </script>
 </body>
 </html>
