@@ -20,7 +20,7 @@
             location: "Boston, MA",
             linkedin: "linkedin.com/in/pranav-viswanathan-7976711b7/",
             github: "github.com/PranavViswanathan",
-            email: "viswanathan.pr@northeastern.edu",
+            email: "viswanathan.pran@northeastern.edu",
             about: `Hello! I'm Pranav, a Master's student in Computer Science at Northeastern University with a passion for building intelligent systems that solve real-world problems. I love working at the intersection of machine learning and software engineering—taking models from research notebooks to production-grade applications that actually make an impact.\n
 
 I'm drawn to projects that combine data, algorithms, and infrastructure. Whether it's building end-to-end ML pipelines that predict bike-sharing demand across Boston, developing reinforcement learning agents that learn to race, or creating real time anomaly detection systems for industrial equipment—I'm all about turning complex problems into elegant, scalable solutions. There's something deeply satisfying about watching a well-architected system come together.\n
@@ -242,6 +242,10 @@ When I'm not coding, you'll find me exploring new frameworks, diving into ML res
                 case 'sudo':
                     hackerboi();
                     break;
+                case 'webpage-view':
+                    window.open('webpage.html', '_blank');
+                    addLine(`<span class="success">Opening webpage view...</span>`);
+                    break;
                 // case 'play-game':
                 //     game();
                 //     break;
@@ -264,6 +268,7 @@ When I'm not coding, you'll find me exploring new frameworks, diving into ML res
                 { cmd: 'clear', desc: 'Clear the terminal' },
                 //{ cmd: 'play-game', desc: 'Play a quick game of hangman'},
                 { cmd: 'help', desc: 'Show this help message' },
+                {cmd: 'webpage-view', desc: 'View a traditional webpage version of my porfolio.'}
 
             ];
             
