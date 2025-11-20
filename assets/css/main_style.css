@@ -247,3 +247,148 @@
                 width: 100px;
             }
         }
+
+
+        /* Loaderr */
+        .fullscreen-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0a0e27;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+}
+
+.fullscreen-loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-terminal {
+    width: 600px;
+    background: #1a1d2e;
+    border-radius: 8px;
+    box-shadow: 0 10px 50px rgba(0, 255, 65, 0.3);
+    overflow: hidden;
+}
+
+.loader-terminal-header {
+    background: #2d3142;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.loader-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.loader-btn.close {
+    background: #ff5f56;
+}
+
+.loader-btn.minimize {
+    background: #ffbd2e;
+}
+
+.loader-btn.maximize {
+    background: #27c93f;
+}
+
+.loader-terminal-title {
+    flex: 1;
+    text-align: center;
+    color: #8892b0;
+    font-size: 14px;
+    font-family: 'Courier New', monospace;
+}
+
+.loader-terminal-body {
+    padding: 30px;
+    background: #0a0e27;
+    font-family: 'Courier New', monospace;
+    color: #00ff41;
+    min-height: 300px;
+}
+
+.loader-line {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.loader-prompt {
+    color: #64ffda;
+    margin-right: 10px;
+}
+
+.loader-command {
+    color: #ffd700;
+}
+
+.loader-output {
+    color: #8892b0;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.loader-success {
+    color: #27c93f;
+}
+
+.loader-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 16px;
+    background: #00ff41;
+    margin-left: 5px;
+    animation: blink-cursor 1s infinite;
+}
+
+@keyframes blink-cursor {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+.loader-progress-bar {
+    width: 100%;
+    height: 20px;
+    background: #1a1d2e;
+    border: 1px solid #64ffda;
+    border-radius: 3px;
+    margin: 15px 0;
+    overflow: hidden;
+}
+
+.loader-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #64ffda, #00ff41);
+    width: 0%;
+    transition: width 0.3s ease-out;
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+}
+
+.loader-percentage {
+    color: #ffd700;
+    margin-left: 20px;
+}
+
+@media (max-width: 768px) {
+    .loader-terminal {
+        width: 90%;
+        margin: 0 20px;
+    }
+    
+    .loader-terminal-body {
+        padding: 20px;
+        font-size: 12px;
+    }
+}

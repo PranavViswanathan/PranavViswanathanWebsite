@@ -115,8 +115,6 @@ When I'm not coding, you'll find me exploring new frameworks, diving into ML res
             addLine('');
             await typeText('Type "help" to see available commands', 30);
             addLine('');
-            await typeText('Type website-view to view a traditional website version of my portfolio');
-            addLine('');
             createInputLine();
         }
 
@@ -528,5 +526,92 @@ When I'm not coding, you'll find me exploring new frameworks, diving into ML res
     displayGame();
     promptGuess();
 }
+function initializeLoader() {
+    const loaderBody = document.getElementById('loaderBody');
+    const loader = document.getElementById('fullscreenLoader');
+    
+    const steps = [
+        { command: 'Checking system requirements', output: '[OK]', delay: 300 },
+        { command: 'Loading dependencies', output: '[OK]', delay: 400 },
+        { command: 'Initializing terminal environment', output: '[OK]', delay: 500 },
+        { command: 'Compiling portfolio data', output: '[OK]', delay: 400 },
+        { command: 'Loading projects database', output: '[OK]', delay: 600 },
+        { command: 'Establishing connection', output: '[OK]', delay: 400 },
+        { command: 'Rendering interface', output: '[OK]', delay: 500 }
+    ];
+    
+    let currentStep = 0;
+    let progress = 0;
+    
+    const initialContent = `
+        <div class="loader-line">
+            <span class="loader-prompt">pranav@portfolio:~$</span>
+            <span class="loader-command">./initialize_portfolio.sh</span>
+        </div>
+        <div class="loader-output">Initializing...</div>
+        <div class="loader-progress-bar">
+            <div class="loader-progress-fill" id="loaderProgressFill"></div>
+        </div>
+        <div class="loader-line">
+            <span class="loader-percentage" id="loaderPercentage">0%</span>
+        </div>
+    `;
+    
+    loaderBody.innerHTML = initialContent;
+    
+    const progressFill = document.getElementById('loaderProgressFill');
+    const percentageDisplay = document.getElementById('loaderPercentage');
+    
+    function executeStep() {
+        if (currentStep >= steps.length) {
+            const successLine = document.createElement('div');
+            successLine.className = 'loader-line';
+            successLine.innerHTML = '<span class="loader-output loader-success">✓ Portfolio initialized successfully!</span>';
+            loaderBody.appendChild(successLine);
+            
+            const launchLine = document.createElement('div');
+            launchLine.className = 'loader-line';
+            launchLine.innerHTML = `
+                <span class="loader-prompt">pranav@portfolio:~$</span>
+                <span class="loader-command">launch</span>
+                <span class="loader-cursor"></span>
+            `;
+            loaderBody.appendChild(launchLine);
+            
+            setTimeout(() => {
+                loader.classList.add('hidden');
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 800);
+            }, 800);
+            return;
+        }
+        
+        const step = steps[currentStep];
+        
+        const stepLine = document.createElement('div');
+        stepLine.className = 'loader-line';
+        stepLine.innerHTML = `<span class="loader-output">[${currentStep + 1}/${steps.length}] ${step.command}...</span>`;
+        loaderBody.appendChild(stepLine);
+        
+        setTimeout(() => {
+            stepLine.innerHTML += `<span class="loader-success"> ${step.output}</span>`;
+            
+            progress = ((currentStep + 1) / steps.length) * 100;
+            progressFill.style.width = progress + '%';
+            percentageDisplay.textContent = Math.floor(progress) + '%';
+            
+            loaderBody.scrollTop = loaderBody.scrollHeight;
+            
+            currentStep++;
+            executeStep();
+        }, step.delay);
+    }
+    
+    setTimeout(executeStep, 500);
+}
 
+window.addEventListener('load', function() {
+    initializeLoader();
+});
         displayWelcome();
