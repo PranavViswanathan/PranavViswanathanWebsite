@@ -277,7 +277,7 @@ async function executeCommand(cmd) {
       hackerboi();
       break;
     case "webpage-view":
-      window.open("webpage.html");
+      window.open("webpage.html", "_self");
       addLine(`<span class="success">Opening webpage view...</span>`);
       break;
     // case 'play-game':
