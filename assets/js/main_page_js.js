@@ -83,6 +83,13 @@ const projects = [
     url: "https://github.com/PranavViswanathan/Image-Manipulation-Toolkit",
   },
   {
+    name: "Kernal Combat",
+    description:"Kernal-Combat is a terminal-themed coding arena built with vanilla JS and CodeMirror. Users can solve algorithmic challenges, compare solutions, and trigger automated “combat” where code metrics (runtime, space usage, LOC, solve speed) determine the winner",
+    language: "HTML",
+    topics: ["html", "css", "JS", "simulator"],
+    url: "pranavviswanathan.github.io/Kernal-Combat/"
+  },
+  {
     name: "Aegis Nav",
     description:
       "An embedded computer vision system built on Raspberry Pi 3 with custom-compiled OpenCV 3.3.0 for the AegisNav assistive device.",
