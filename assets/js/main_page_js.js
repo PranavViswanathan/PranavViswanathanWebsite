@@ -87,7 +87,7 @@ const projects = [
     description:"Kernal-Combat is a terminal-themed coding arena built with vanilla JS and CodeMirror. Users can solve algorithmic challenges, compare solutions, and trigger automated “combat” where code metrics (runtime, space usage, LOC, solve speed) determine the winner",
     language: "HTML",
     topics: ["html", "css", "JS", "simulator"],
-    url: "pranavviswanathan.github.io/Kernal-Combat/"
+    url: "https://github.com/PranavViswanathan/Kernal-Combat/"
   },
   {
     name: "Aegis Nav",
