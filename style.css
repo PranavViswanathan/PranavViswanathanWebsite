@@ -462,6 +462,27 @@ a { color: inherit; text-decoration: none; }
 .skill-tag.visible { opacity: 1; transform: none; }
 .skill-tag:hover { border-color: rgba(200,245,90,0.4); color: var(--accent); }
 
+/* ── Skills graph toggle ── */
+.skills-graph-toggle {
+  cursor: pointer;
+  user-select: none;
+}
+.skills-graph-hint {
+  font-size: 0.55em;
+  letter-spacing: 0.1em;
+  text-transform: none;
+  color: var(--accent);
+  opacity: 0;
+  transition: opacity 0.25s;
+  vertical-align: middle;
+  font-weight: 400;
+  margin-left: 0.6em;
+}
+.skills-graph-toggle:hover .skills-graph-hint,
+.skills-graph-toggle.graph-active .skills-graph-hint {
+  opacity: 1;
+}
+
 /* ── Contact ── */
 .contact-inner { text-align: center; }
 .contact-sub {

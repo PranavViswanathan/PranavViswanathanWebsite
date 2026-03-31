@@ -15,6 +15,7 @@ async function init() {
   renderAbout(about);
   renderProjects(projects.projects.filter(p => p.display));
   renderSkills(skills.categories);
+  initSkillGraph(skills.categories, projects.projects.filter(p => p.display));
   renderContact(contact);
   setupObserver();
   setupNav(about.name);
