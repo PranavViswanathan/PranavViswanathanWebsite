@@ -26,7 +26,7 @@ function renderAbout(d) {
   setText('hero-name', d.name);
   setText('hero-title', d.title);
   setText('about-bio', d.bio);
-  setText('about-edu', d.education);
+  setText('about-edu', Array.isArray(d.education) ? d.education.join(' · ') : d.education);
   setText('about-loc', d.location);
   setText('nav-name', d.name);
   if (d.resume) el('hero-resume').href = d.resume;

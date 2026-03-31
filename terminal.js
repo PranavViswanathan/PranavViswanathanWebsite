@@ -123,7 +123,7 @@
         line(),
         line('Education', 'tc-accent tc-bold'),
         line('─────────', 'tc-dim'),
-        line(d.about.education),
+        ...(Array.isArray(d.about.education) ? d.about.education.map(e => line(e)) : [line(d.about.education)]),
         line(),
         line('Focus Areas', 'tc-accent'),
         line('  · Machine Learning & MLOps'),
@@ -248,7 +248,7 @@
     neofetch() {
       const d = data();
       const name = d ? d.about.name : 'Pranav Viswanathan';
-      const uni  = d ? d.about.education.split('—')[0].trim() : 'Northeastern University';
+      const uni  = d ? (Array.isArray(d.about.education) ? d.about.education[0] : d.about.education).split('—')[0].trim() : 'Northeastern University';
       const sep  = '─'.repeat(name.length);
       print(
         block(

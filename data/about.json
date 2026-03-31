@@ -3,14 +3,22 @@
     "title": "Software & ML Engineer",
     "tagline": "Building intelligent systems that scale.",
     "taglines": [
-        "Building intelligent systems that scale.",
-        "Designing end-to-end ML pipelines.",
-        "From RAG systems to multi-drone swarms.",
-        "M.S. Computer Science @ Northeastern.",
-        "Open to new grad roles — May 2026."
-    ],
+    "I build ML systems that ship, not just train.",
+    "From anomaly detection to retrieval at scale.",
+    "Production ML. RAG Systems. End-to-End Pipelines.",
+    "If it involves Python and a latency budget, I'm in.",
+    "Pipelines automated. Models versioned. Coffee strong.",
+    "Curious about hard problems. Obsessed with shipping them.",
+    "Raft consensus, drone swarms, and too many Docker containers.",
+    "Building distributed systems and intelligent pipelines.",
+    "M.S. Computer Science @ Northeastern, May 2026.",
+    "Currently seeking new grad roles in ML and software engineering."
+],
     "bio": "CS grad student at Northeastern, shipping systems that sit at the intersection of ML, distributed infrastructure, and full-stack engineering. I've built local-first RAG pipelines, MLOps platforms, multi-drone coordination systems, and real-time video processors — things that work end-to-end, not just in a notebook. I care about the full stack: the model, the pipeline that feeds it, the infra that runs it, and the interface that makes it useful.",
-    "education": "Northeastern University — M.S. Computer Science, May 2026",
+    "education": [
+        "Northeastern University — M.S. Computer Science, May 2026",
+        "Vellore Institute of Technology — B.Tech Computer Science & Engineering (Cyber-Physical Systems)"
+    ],
     "location": "Boston, MA",
     "resume": "assets/resume.pdf"
 }
