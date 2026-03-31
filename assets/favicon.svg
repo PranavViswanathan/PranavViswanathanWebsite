@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Dark background -->
+  <rect width="32" height="32" rx="6" fill="#0a0a0a"/>
+  <!-- Monitor body -->
+  <rect x="3" y="4" width="26" height="17" rx="2.5" fill="none" stroke="#c8f55a" stroke-width="2"/>
+  <!-- Stand stem -->
+  <line x1="16" y1="21" x2="16" y2="26" stroke="#c8f55a" stroke-width="2" stroke-linecap="round"/>
+  <!-- Stand base -->
+  <line x1="10" y1="26" x2="22" y2="26" stroke="#c8f55a" stroke-width="2" stroke-linecap="round"/>
+  <!-- Terminal > prompt -->
+  <polyline points="7,10.5 10.5,13 7,15.5" fill="none" stroke="#c8f55a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Cursor line -->
+  <line x1="12.5" y1="15.5" x2="18.5" y2="15.5" stroke="#c8f55a" stroke-width="1.8" stroke-linecap="round"/>
+</svg>
