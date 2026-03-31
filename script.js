@@ -176,6 +176,21 @@ function setupNav(name) {
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 60);
   }, { passive: true });
+
+  const hamburger = el('nav-hamburger');
+  const navLinks = nav.querySelector('.nav-links');
+  hamburger.addEventListener('click', () => {
+    const open = hamburger.classList.toggle('open');
+    navLinks.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open);
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      navLinks.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
 }
 
 /* ── Helpers ── */
