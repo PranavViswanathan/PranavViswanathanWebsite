@@ -9,7 +9,9 @@
                 "JavaScript",
                 "TypeScript",
                 "SQL",
-                "Bash"
+                "C/C++",
+                "R",
+                "Shell Scripting"
             ]
         },
         {
@@ -20,9 +22,14 @@
                 "XGBoost",
                 "LightGBM",
                 "LlamaIndex",
-                "Transformers",
+                "Hugging Face Transformers",
+                "SentenceTransformers",
                 "OpenCV",
-                "MLflow"
+                "MLflow",
+                "RAG",
+                "Vector Embeddings",
+                "Cross-Encoder Reranking",
+                "Anomaly Detection"
             ]
         },
         {
@@ -32,9 +39,13 @@
                 "Docker",
                 "Apache Airflow",
                 "Terraform",
-                "AWS (ECS, Lambda, SQS, DynamoDB)",
+                "AWS (S3, EC2, Lambda, Fargate, SNS/SQS, RDS)",
+                "Google Cloud Platform",
                 "PostgreSQL",
-                "Redis"
+                "LanceDB",
+                "Redis",
+                "Prometheus",
+                "GitHub Actions"
             ]
         },
         {
@@ -42,6 +53,7 @@
             "skills": [
                 "Next.js",
                 "React",
+                "Three.js",
                 "HTML",
                 "CSS"
             ]
@@ -50,11 +62,12 @@
             "label": "Distributed Systems",
             "skills": [
                 "Raft Consensus",
-                "gRPC",
-                "Kafka",
                 "SNS/SQS",
                 "ECS Fargate",
-                "Load Testing (Locust)"
+                "WebSockets",
+                "Load Testing (Locust)",
+                "Microservices",
+                "Async Architectures"
             ]
         }
     ]
