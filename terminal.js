@@ -6,6 +6,7 @@
   let historyIdx   = -1;
   let isOpen       = false;
   let matrixTimer  = null;
+  let activeGame   = null;
 
   /* ── DOM refs (set in buildDOM) ── */
   let overlay, outputEl, inputEl;
@@ -78,6 +79,7 @@
     hire-me         ;)
     sudo hire-me    ;;)
     matrix          Enter the matrix
+    tetris          Play Tetris
     coffee          ☕
     joke            Random dev joke
     date            Current date & time
@@ -419,6 +421,185 @@
       }, 70);
     },
 
+    tetris() {
+      if (activeGame) {
+        print(line('A game is already active. Press Q to quit first.', 'tc-error'));
+        return;
+      }
+
+      const W = 10, H = 20;
+
+      // Each piece: array of 4 rotations; each rotation: array of [dr, dc] cell offsets
+      const PIECES = [
+        // I
+        [[[0,0],[0,1],[0,2],[0,3]], [[0,2],[1,2],[2,2],[3,2]], [[2,0],[2,1],[2,2],[2,3]], [[0,1],[1,1],[2,1],[3,1]]],
+        // O
+        [[[0,0],[0,1],[1,0],[1,1]], [[0,0],[0,1],[1,0],[1,1]], [[0,0],[0,1],[1,0],[1,1]], [[0,0],[0,1],[1,0],[1,1]]],
+        // T
+        [[[0,1],[1,0],[1,1],[1,2]], [[0,0],[1,0],[1,1],[2,0]], [[1,0],[1,1],[1,2],[2,1]], [[0,1],[1,0],[1,1],[2,1]]],
+        // S
+        [[[0,1],[0,2],[1,0],[1,1]], [[0,0],[1,0],[1,1],[2,1]], [[0,1],[0,2],[1,0],[1,1]], [[0,0],[1,0],[1,1],[2,1]]],
+        // Z
+        [[[0,0],[0,1],[1,1],[1,2]], [[0,1],[1,0],[1,1],[2,0]], [[0,0],[0,1],[1,1],[1,2]], [[0,1],[1,0],[1,1],[2,0]]],
+        // J
+        [[[0,0],[1,0],[1,1],[1,2]], [[0,0],[0,1],[1,0],[2,0]], [[1,0],[1,1],[1,2],[2,2]], [[0,1],[1,1],[2,0],[2,1]]],
+        // L
+        [[[0,2],[1,0],[1,1],[1,2]], [[0,0],[1,0],[2,0],[2,1]], [[1,0],[1,1],[1,2],[2,0]], [[0,0],[0,1],[1,1],[2,1]]],
+      ];
+
+      let board = Array.from({length: H}, () => new Array(W).fill(0));
+      let current = null;
+      let score = 0, level = 1, lines = 0;
+      let gameOver = false, paused = false;
+      let timer = null, speed = 800;
+
+      const display = document.createElement('pre');
+      display.className = 'tpre';
+      outputEl.appendChild(display);
+      outputEl.scrollTop = outputEl.scrollHeight;
+
+      function valid({piece, rot, row, col}) {
+        return PIECES[piece][rot].every(([dr, dc]) => {
+          const r = row + dr, c = col + dc;
+          return r >= 0 && r < H && c >= 0 && c < W && !board[r][c];
+        });
+      }
+
+      function getGhost() {
+        let r = current.row;
+        while (valid({...current, row: r + 1})) r++;
+        return r;
+      }
+
+      function render() {
+        if (!current) return;
+        const ghost = getGhost();
+        const grid = board.map(row => [...row]);
+
+        PIECES[current.piece][current.rot].forEach(([dr, dc]) => {
+          const r = ghost + dr, c = current.col + dc;
+          if (r >= 0 && r < H && !grid[r][c]) grid[r][c] = -1;
+        });
+
+        PIECES[current.piece][current.rot].forEach(([dr, dc]) => {
+          const r = current.row + dr, c = current.col + dc;
+          if (r >= 0 && r < H) grid[r][c] = current.piece + 1;
+        });
+
+        let out = `  Score: ${score}  Level: ${level}  Lines: ${lines}${paused ? '  [PAUSED]' : ''}\n`;
+        out += '  ┌' + '──'.repeat(W) + '┐\n';
+        for (let r = 0; r < H; r++) {
+          out += '  │';
+          for (let c = 0; c < W; c++) {
+            if (grid[r][c] > 0) out += '██';
+            else if (grid[r][c] === -1) out += '░░';
+            else out += '  ';
+          }
+          out += '│\n';
+        }
+        out += '  └' + '──'.repeat(W) + '┘\n';
+        out += '\n  ←→ move  ↑ rotate  ↓ soft drop  Space: hard drop  P: pause  Q: quit';
+
+        display.textContent = out;
+        outputEl.scrollTop = outputEl.scrollHeight;
+      }
+
+      function clearLines() {
+        const newBoard = board.filter(row => !row.every(c => c > 0));
+        const cleared = H - newBoard.length;
+        while (newBoard.length < H) newBoard.unshift(new Array(W).fill(0));
+        board = newBoard;
+        const pts = [0, 100, 300, 500, 800][cleared] || 0;
+        score += pts * level;
+        lines += cleared;
+        level = Math.floor(lines / 10) + 1;
+        speed = Math.max(80, 800 - (level - 1) * 75);
+      }
+
+      function endGame() {
+        clearTimeout(timer);
+        timer = null;
+        activeGame = null;
+        document.removeEventListener('keydown', gameKey);
+        inputEl.disabled = false;
+        inputEl.focus();
+        render();
+        print(
+          line(),
+          line(gameOver
+            ? `Game Over!  Score: ${score}  Lines: ${lines}`
+            : `Tetris quit.  Score: ${score}  Lines: ${lines}`, 'tc-accent'),
+          line()
+        );
+      }
+
+      function newPiece() {
+        const p = Math.floor(Math.random() * PIECES.length);
+        current = { piece: p, rot: 0, row: 0, col: 3 };
+        if (!valid(current)) { gameOver = true; endGame(); }
+      }
+
+      function place() {
+        PIECES[current.piece][current.rot].forEach(([dr, dc]) => {
+          board[current.row + dr][current.col + dc] = current.piece + 1;
+        });
+        clearLines();
+        newPiece();
+      }
+
+      function step() {
+        if (paused || gameOver) return;
+        if (valid({...current, row: current.row + 1})) {
+          current.row++;
+        } else {
+          place();
+        }
+        if (!gameOver) render();
+      }
+
+      function scheduleStep() {
+        timer = setTimeout(() => {
+          step();
+          if (!gameOver) scheduleStep();
+        }, speed);
+      }
+
+      function gameKey(e) {
+        if (!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown',' ','p','P','q','Q'].includes(e.key)) return;
+        e.preventDefault();
+        if (gameOver) return;
+
+        if (e.key === 'q' || e.key === 'Q') { gameOver = true; endGame(); return; }
+        if (e.key === 'p' || e.key === 'P') { paused = !paused; render(); return; }
+        if (paused) return;
+
+        if (e.key === 'ArrowLeft' && valid({...current, col: current.col - 1})) { current.col--; render(); }
+        if (e.key === 'ArrowRight' && valid({...current, col: current.col + 1})) { current.col++; render(); }
+        if (e.key === 'ArrowUp') {
+          const nextRot = (current.rot + 1) % PIECES[current.piece].length;
+          if (valid({...current, rot: nextRot})) { current.rot = nextRot; render(); }
+        }
+        if (e.key === 'ArrowDown') {
+          if (valid({...current, row: current.row + 1})) { current.row++; render(); }
+          else { place(); if (!gameOver) render(); }
+        }
+        if (e.key === ' ') {
+          current.row = getGhost();
+          place();
+          if (!gameOver) render();
+        }
+      }
+
+      inputEl.disabled = true;
+      document.addEventListener('keydown', gameKey);
+      activeGame = () => { if (!gameOver) { gameOver = true; endGame(); } };
+
+      print(line('Starting Tetris…  ←→: move  ↑: rotate  ↓: soft drop  Space: hard drop  P: pause  Q: quit', 'tc-dim'));
+
+      newPiece();
+      if (!gameOver) { render(); scheduleStep(); }
+    },
+
     clear() { outputEl.innerHTML = ''; printWelcome(); },
     cls()   { CMD.clear(); },
 
@@ -501,6 +682,7 @@
     overlay.setAttribute('aria-hidden', 'true');
     overlay.classList.remove('t-open');
     if (matrixTimer) { clearInterval(matrixTimer); matrixTimer = null; }
+    if (activeGame) { activeGame(); activeGame = null; }
   }
 
   /* ══════════════════════════════════════
