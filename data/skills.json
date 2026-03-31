@@ -1,0 +1,61 @@
+{
+    "categories": [
+        {
+            "label": "Languages",
+            "skills": [
+                "Python",
+                "Go",
+                "Java",
+                "JavaScript",
+                "TypeScript",
+                "SQL",
+                "Bash"
+            ]
+        },
+        {
+            "label": "ML / AI",
+            "skills": [
+                "PyTorch",
+                "scikit-learn",
+                "XGBoost",
+                "LightGBM",
+                "LlamaIndex",
+                "Transformers",
+                "OpenCV",
+                "MLflow"
+            ]
+        },
+        {
+            "label": "Backend & Infra",
+            "skills": [
+                "FastAPI",
+                "Docker",
+                "Apache Airflow",
+                "Terraform",
+                "AWS (ECS, Lambda, SQS, DynamoDB)",
+                "PostgreSQL",
+                "Redis"
+            ]
+        },
+        {
+            "label": "Frontend",
+            "skills": [
+                "Next.js",
+                "React",
+                "HTML",
+                "CSS"
+            ]
+        },
+        {
+            "label": "Distributed Systems",
+            "skills": [
+                "Raft Consensus",
+                "gRPC",
+                "Kafka",
+                "SNS/SQS",
+                "ECS Fargate",
+                "Load Testing (Locust)"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "name": "Pranav Viswanathan",
+    "title": "Software & ML Engineer",
+    "tagline": "Building intelligent systems that scale.",
+    "taglines": [
+        "Building intelligent systems that scale.",
+        "Designing end-to-end ML pipelines.",
+        "From RAG systems to multi-drone swarms.",
+        "M.S. Computer Science @ Northeastern.",
+        "Open to new grad roles — May 2026."
+    ],
+    "bio": "CS grad student at Northeastern, shipping systems that sit at the intersection of ML, distributed infrastructure, and full-stack engineering. I've built local-first RAG pipelines, MLOps platforms, multi-drone coordination systems, and real-time video processors — things that work end-to-end, not just in a notebook. I care about the full stack: the model, the pipeline that feeds it, the infra that runs it, and the interface that makes it useful.",
+    "education": "Northeastern University — M.S. Computer Science, May 2026",
+    "location": "Boston, MA",
+    "resume": "assets/resume.pdf"
+}

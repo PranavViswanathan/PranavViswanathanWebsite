@@ -1,0 +1,92 @@
+{
+    "projects": [
+        {
+            "display": true,
+            "title": "OmniRAG",
+            "description": "OmniRAG is a decentralized RAG architecture leveraging local LLM inference via Ollama. It orchestrates asynchronous web-scraping, session-isolated vector persistence, and real-time knowledge synthesis, all visualized through an immersive, React-driven semantic graph providing high-fidelity technical insights.",
+            "tech": ["TypeScript", "Ollama", "LanceDB", "Docker", "RAG", "Vector Database", "Web Scraping"],
+            "github": "https://github.com/PranavViswanathan/OmniRAG",
+            "demo": ""
+        },
+        {
+            "display": true,
+            "title": "Rebalance-AI",
+            "description": "An end-to-end MLOps platform leveraging distributed orchestration, experiment tracking, and containerized microservices to deliver real-time demand forecasting for Boston's Bluebikes network. The system implements a multi-algorithm ensemble architecture with automated hyperparameter tuning.",
+            "tech": ["Python", "Apache Airflow", "MLflow", "Docker", "Machine Learning", "Predictive Analytics"],
+            "github": "https://github.com/PranavViswanathan/Rebalance-AI",
+            "demo": ""
+        },
+        {
+            "display": true,
+            "title": "SwarmCoordinator",
+            "description": "Distributed drone swarm coordination system with Raft consensus for fault tolerance, FastAPI backend with physics simulation, and real-time 3D visualization using Three.js. Features leader election, formation control, collision avoidance via Artificial Potential Fields, WebSocket streaming at 10Hz, and comprehensive REST API with automated deployment.",
+            "tech": ["Python", "FastAPI", "Raft Consensus", "Three.js", "WebSocket", "Docker"],
+            "github": "https://github.com/PranavViswanathan/SwarmCoordinator",
+            "demo": ""
+        },
+        {
+            "display": true,
+            "title": "Lucera",
+            "description": "High-fidelity video pipeline combining Real-ESRGAN upscaling, RIFE interpolation, and Whisper captioning. Features OpenCV analysis, adaptive HLS packaging, and VMAF verification for automated, production-grade enhancement.",
+            "tech": ["Python", "Real-ESRGAN", "RIFE", "Whisper", "FFmpeg", "OpenCV", "HLS"],
+            "github": "https://github.com/PranavViswanathan/Lucera",
+            "demo": ""
+        },
+        {
+            "display": true,
+            "title": "HawkEye",
+            "description": "HawkEye is a system for multi-sensor fusion object detection, designed to improve target detection reliability in low-visibility environments (fog, smoke, night vision) using combined RGB, Thermal, and LiDAR data.",
+            "tech": ["Python", "OpenCV", "Kalman Filter", "Sensor Fusion", "LiDAR", "Object Detection"],
+            "github": "https://github.com/PranavViswanathan/HawkEye",
+            "demo": ""
+        },
+        {
+            "display": true,
+            "title": "EcoStockAI",
+            "description": "ML-driven inventory system: sklearn stockout forecasting, Evidently AI drift detection, Airflow-orchestrated retraining with MLflow RMSE gating. FastAPI · React · PostgreSQL · Docker.",
+            "tech": ["Python", "scikit-learn", "Evidently AI", "Apache Airflow", "MLflow", "FastAPI", "React", "PostgreSQL", "Docker"],
+            "github": "https://github.com/PranavViswanathan/EcoStockAI",
+            "demo": ""
+        },
+        {
+            "display": true,
+            "title": "NeuroPilot",
+            "description": "A comparative reinforcement learning framework evaluating Q-Learning versus Deep Q-Networks (DQN) on the Gymnasium CarRacing-v3 environment. The system implements both tabular Q-learning with discretized state spaces and a CNN-based DQN architecture with experience replay and target networks, enabling autonomous agents to learn optimal racing policies.",
+            "tech": ["Python", "PyTorch", "DQN", "Q-Learning", "Gymnasium", "Deep Learning"],
+            "github": "https://github.com/PranavViswanathan/NeuroPilot",
+            "demo": ""
+        },
+        {
+            "display": false,
+            "title": "JobHuntr",
+            "description": "A comprehensive tool to automate your job search for 2026/2027 internships and new grad roles. It scrapes job boards (GitHub, etc.), filters for your keywords, and provides a Kanban board to track your applications.",
+            "tech": ["JavaScript", "Web Scraping", "Kanban"],
+            "github": "https://github.com/PranavViswanathan/JobHuntr",
+            "demo": ""
+        },
+        {
+            "display": false,
+            "title": "Kernal-Combat",
+            "description": "Kernal-Combat is a terminal-themed coding arena built with vanilla JS and CodeMirror. Users can solve algorithmic challenges, compare solutions, and trigger automated \"combat\" where code metrics (runtime, space usage, LOC, solve speed) determine the winner.",
+            "tech": ["HTML", "CSS", "JavaScript", "CodeMirror"],
+            "github": "https://github.com/PranavViswanathan/Kernal-Combat",
+            "demo": "https://pranavviswanathan.github.io/Kernal-Combat/"
+        },
+        {
+            "display": false,
+            "title": "PranavViswanathanWebsite",
+            "description": "A sleek, interactive terminal-themed portfolio website showcasing my projects, skills, and experience as a Software Developer & ML Engineer.",
+            "tech": ["HTML", "CSS", "JavaScript"],
+            "github": "https://github.com/PranavViswanathan/PranavViswanathanWebsite",
+            "demo": "https://pranavvis.tech"
+        },
+        {
+            "display": false,
+            "title": "Regex-LogFile-Searching",
+            "description": "A program which is used to check for warnings in a sample log file.",
+            "tech": ["Python", "Regex"],
+            "github": "https://github.com/PranavViswanathan/Regex-LogFile-Searching",
+            "demo": ""
+        }
+    ]
+}
