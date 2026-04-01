@@ -12,7 +12,7 @@
             "display": true,
             "title": "Rebalance-AI",
             "description": "An end-to-end MLOps platform leveraging distributed orchestration, experiment tracking, and containerized microservices to deliver real-time demand forecasting for Boston's Bluebikes network. The system implements a multi-algorithm ensemble architecture with automated hyperparameter tuning.",
-            "tech": ["Python", "Apache Airflow", "MLflow", "Docker", "Machine Learning", "Predictive Analytics", "Github Actions", "Google Cloud Platform", "Shell Scripting"],
+            "tech": ["Python", "Apache Airflow", "MLflow", "Docker", "Machine Learning", "Predictive Analytics", "Github Actions", "Google Cloud Platform", "Shell Scripting", "scikit-learn", "XGBoost", "LightGBM"],
             "github": "https://github.com/PranavViswanathan/Rebalance-AI",
             "demo": ""
         },
