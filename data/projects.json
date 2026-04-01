@@ -4,7 +4,7 @@
             "display": true,
             "title": "OmniRAG",
             "description": "OmniRAG is a decentralized RAG architecture leveraging local LLM inference via Ollama. It orchestrates asynchronous web-scraping, session-isolated vector persistence, and real-time knowledge synthesis, all visualized through an immersive, React-driven semantic graph providing high-fidelity technical insights.",
-            "tech": ["TypeScript", "Ollama", "LanceDB", "Docker", "RAG", "Vector Database", "Web Scraping", "SentenceTransformers", "React", "Three.js", "Hugging Face Transformers", "Cross-Encoder Reranking", "LlamaIndex"],
+            "tech": ["TypeScript", "Ollama", "LanceDB", "Docker", "RAG", "Vector Database", "Web Scraping", "SentenceTransformers", "React", "Three.js", "Hugging Face Transformers", "Cross-Encoder Reranking", "LlamaIndex", "Next.js"],
             "github": "https://github.com/PranavViswanathan/OmniRAG",
             "demo": ""
         },
