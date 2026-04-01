@@ -201,7 +201,7 @@
       ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
 
       if (n.type === 'project') {
-        ctx.fillStyle = '#0a0a0a';
+        ctx.fillStyle = '#ffffff';
         ctx.fill();
         const isConn = nb && nb.has(n.id) && n !== hoveredNode;
         ctx.strokeStyle = isConn
@@ -269,7 +269,7 @@
     ctx.globalAlpha = 0.55;
     ctx.beginPath();
     ctx.arc(lx + 4, baseY + oy + 7, 4.5, 0, Math.PI * 2);
-    ctx.fillStyle = '#0a0a0a';
+    ctx.fillStyle = '#ffffff';
     ctx.fill();
     ctx.strokeStyle = 'rgba(240,237,232,0.6)';
     ctx.lineWidth = 1.5;
