@@ -30,10 +30,21 @@ Press `` ` `` (backtick) anywhere on the page, or click the `>_` button in the n
 | About | `whoami`, `about`, `education`, `experience` |
 | Work | `skills`, `projects`, `open <n>`, `contact` |
 | Navigation | `ls`, `cd <section>`, `pwd` |
+| Recruiter Mode | `git log`, `top`, `whois pranav`, `weather`, `diff resume` |
 | Fun | `neofetch`, `ascii`, `hire-me`, `sudo hire-me`, `matrix`, `coffee`, `joke`, `date`, `echo` |
 | Terminal | `clear`, `history`, `exit` / `quit` |
 
 Terminal features: command history (`↑` / `↓`), tab autocomplete, `Ctrl+C` to cancel input, matrix rain animation, and a `sudo hire-me` Easter egg.
+
+**Recruiter Mode commands:**
+- `git log` — commit-log styled career milestones
+- `top` — process-table view of active projects and their status
+- `whois pranav` — full lookup: role, location, availability, contact info
+- `weather` — live Boston weather fetched from wttr.in
+- `diff resume` — side-by-side diff of SDE vs ML resume focus areas
+
+### Interactive Skill Graph
+The Skills section includes an interactive force-directed graph that visualizes the relationships between skills and projects. Skill nodes are color-coded by category (Languages, ML/AI, Backend & Infra, Frontend, Distributed Systems) and connected to project nodes when a project uses that skill. Supports hover to highlight connections, drag to reposition nodes, and a physics simulation that settles into a stable layout.
 
 ### Typing Animation Hero
 The hero tagline cycles through multiple lines using a smooth typewriter effect with human-feel randomised speed variation. Lines are defined in `data/about.json` under `taglines`.
@@ -54,6 +65,7 @@ portfolio/
 ├── style.css           # All styles, animations, terminal UI
 ├── script.js           # Data loading, rendering, IntersectionObserver
 ├── terminal.js         # Full terminal implementation (IIFE, self-contained)
+├── skillgraph.js       # Interactive force-directed skill graph (IIFE, self-contained)
 └── data/
     ├── about.json      # Name, bio, title, taglines, education, location, resume
     ├── projects.json   # Projects with display flag, tech stack, links
