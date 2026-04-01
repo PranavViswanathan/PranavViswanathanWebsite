@@ -68,6 +68,7 @@
         id: idx,
         type: 'project',
         label: proj.title,
+        github: proj.github || null,
         x: cx + Math.cos(angle) * 55 + (Math.random() - 0.5) * 30,
         y: cy + Math.sin(angle) * 55 + (Math.random() - 0.5) * 30,
         vx: 0, vy: 0, r: 9,
@@ -377,6 +378,15 @@
         canvas.style.cursor = hoveredNode ? 'pointer' : 'default';
         alpha = Math.max(alpha, 0.4);
       }
+    });
+    canvas.addEventListener('click', e => {
+      const r = canvas.getBoundingClientRect();
+      const mx = e.clientX - r.left, my = e.clientY - r.top;
+      nodes.forEach(n => {
+        if (n.type === 'project' && n.github && Math.hypot(mx - n.x, my - n.y) < n.r + 10) {
+          window.open(n.github, '_blank', 'noopener');
+        }
+      });
     });
 
     let resizeTimer;
