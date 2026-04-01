@@ -73,6 +73,13 @@
     cd <section>    Scroll to a section
     pwd             Show current section
 
+  Recruiter Mode
+    git log         Milestones that shaped me
+    top             What's currently running in my head
+    whois pranav    Full lookup on who I am
+    weather         Current Boston weather
+    diff resume     SDE vs ML resume, side by side
+
   Fun
     neofetch        Portfolio system info
     ascii           ASCII name art
@@ -598,6 +605,149 @@
 
       newPiece();
       if (!gameOver) { render(); scheduleStep(); }
+    },
+
+    /* ── Recruiter Mode ── */
+
+    'git'(args) {
+      if (args[0] !== 'log') {
+        return print(line(`git: '${args[0] || ''}' is not a recognized git command`, 'tc-error'));
+      }
+      const entries = [
+        { hash: 'a3f9c12', ref: '(HEAD -> main)', msg: 'built OmniRAG local-first RAG system' },
+        { hash: '7b2e841', ref: null,             msg: 'joined Northeastern MS Computer Science' },
+        { hash: 'f91da03', ref: null,             msg: 'interned at NergyLive, built real-time HVAC anomaly detection' },
+        { hash: '3c8b120', ref: null,             msg: 'graduated Vellore Institute of Technology' },
+        { hash: 'e4f2b99', ref: null,             msg: 'wrote first line of code' },
+      ];
+      print(line());
+      entries.forEach(e => {
+        const refHtml = e.ref
+          ? ` <span style="color:#27c93f">${esc(e.ref)}</span>`
+          : '';
+        print(rich(
+          `  <span style="color:#c8f55a">${esc(e.hash)}</span>${refHtml} ${esc(e.msg)}`
+        ));
+      });
+      print(line());
+    },
+
+    top() {
+      const procs = [
+        { pid: '001', name: 'OmniRAG',          cpu: '34.2', mem: '18.1', status: 'running'  },
+        { pid: '002', name: 'job-search',        cpu: '98.7', mem: '67.3', status: 'running'  },
+        { pid: '003', name: 'SwarmCoordinator', cpu: '12.4', mem: ' 9.2', status: 'sleeping' },
+        { pid: '004', name: 'Rebalance-AI',     cpu: ' 8.1', mem: '11.0', status: 'sleeping' },
+        { pid: '005', name: 'HawkEye',          cpu: ' 4.3', mem: ' 6.7', status: 'stopped'  },
+      ];
+      const statusColor = { running: '#27c93f', sleeping: '#ffbd2e', stopped: '#ff6b6b' };
+      print(
+        line(),
+        rich(`  <span class="tc-dim">PID   NAME                CPU%    MEM%    STATUS</span>`),
+        rich(`  <span class="tc-dim">────  ──────────────────  ──────  ──────  ─────────</span>`)
+      );
+      procs.forEach(p => {
+        const sc = statusColor[p.status] || '#f0ede8';
+        print(rich(
+          `  <span class="tc-muted">${esc(p.pid)}</span>   ` +
+          `<span class="tc-accent">${esc(p.name.padEnd(18))}</span>  ` +
+          `${esc(p.cpu.padStart(6))}  ` +
+          `${esc(p.mem.padStart(6))}  ` +
+          `<span style="color:${sc}">${esc(p.status)}</span>`
+        ));
+      });
+      print(line());
+    },
+
+    whois(args) {
+      if ((args[0] || '').toLowerCase() !== 'pranav') {
+        return print(line(
+          `whois: ${args[0] || '<name>'}: not found  (try: whois pranav)`,
+          'tc-error'
+        ));
+      }
+      print(
+        line(),
+        rich(`  <span class="tc-dim">Name:</span>         Pranav Viswanathan`),
+        rich(`  <span class="tc-dim">Role:</span>         Software &amp; ML Engineer`),
+        rich(`  <span class="tc-dim">Org:</span>          Northeastern University (MS CS, May 2026)`),
+        rich(`  <span class="tc-dim">Location:</span>     Boston, MA`),
+        rich(`  <span class="tc-dim">Status:</span>       <span class="tc-accent tc-bold">AVAILABLE</span> — actively seeking new grad roles`),
+        rich(`  <span class="tc-dim">Skills:</span>       Python, Go, Java, PyTorch, AWS, Docker`),
+        rich(`  <span class="tc-dim">Contact:</span>      pvvisthn@gmail.com`),
+        rich(`  <span class="tc-dim">LinkedIn:</span>     linkedin.com/in/pranav-viswanathan-7976711b7`),
+        rich(`  <span class="tc-dim">GitHub:</span>       github.com/PranavViswanathan`),
+        line()
+      );
+    },
+
+    weather() {
+      const loadingEl = line('Fetching Boston weather…', 'tc-muted');
+      print(loadingEl);
+      fetch('https://wttr.in/Boston?format=j1')
+        .then(r => { if (!r.ok) throw new Error('bad response'); return r.json(); })
+        .then(d => {
+          loadingEl.remove();
+          const cur = d.current_condition[0];
+          const desc    = cur.weatherDesc[0].value;
+          const tempF   = cur.temp_F;
+          const tempC   = cur.temp_C;
+          const humidity = cur.humidity;
+          const windMph = cur.windspeedMiles;
+          const windDir = cur.winddir16Point;
+          print(
+            line(),
+            line('Boston, MA', 'tc-accent tc-bold'),
+            line('─────────────', 'tc-dim'),
+            rich(`  <span class="tc-dim">Condition:</span>    ${esc(desc)}`),
+            rich(`  <span class="tc-dim">Temperature:</span>  ${esc(tempF)}°F / ${esc(tempC)}°C`),
+            rich(`  <span class="tc-dim">Humidity:</span>     ${esc(humidity)}%`),
+            rich(`  <span class="tc-dim">Wind:</span>         ${esc(windMph)} mph ${esc(windDir)}`),
+            line()
+          );
+        })
+        .catch(() => {
+          loadingEl.remove();
+          print(line("weather service unreachable — it's Boston, assume rain", 'tc-error'));
+        });
+    },
+
+    diff(args) {
+      if (args[0] !== 'resume') {
+        return print(line(`diff: try  diff resume`, 'tc-error'));
+      }
+      print(
+        line(),
+        rich(`<span class="tc-dim">diff --git a/resume-sde.pdf b/resume-ml.pdf</span>`),
+        rich(`<span class="tc-dim">--- a/resume-sde.pdf</span>`),
+        rich(`<span class="tc-dim">+++ b/resume-ml.pdf</span>`),
+        line(),
+        rich(`<span style="color:#5dd3f3">@@ Featured Projects @@</span>`),
+        rich(`<span style="color:#ff6b6b">-  SwarmCoordinator: Raft consensus, 10 drone agents, FastAPI, Three.js</span>`),
+        rich(`<span style="color:#ff6b6b">-  HawkEye: RGB/Thermal/LiDAR fusion, Kalman filter, 14-16 FPS</span>`),
+        rich(`<span style="color:#27c93f">+  OmniRAG: local-first RAG, BGE cross-encoder reranking, LanceDB</span>`),
+        rich(`<span style="color:#27c93f">+  Rebalance-AI: XGBoost/LightGBM, R²&gt;0.96, 3.16M records</span>`),
+        line(),
+        rich(`<span style="color:#5dd3f3">@@ Technical Skills @@</span>`),
+        rich(`<span style="color:#ff6b6b">-  Go, Distributed Systems, Raft Consensus, WebSockets, Microservices</span>`),
+        rich(`<span style="color:#ff6b6b">-  Redis, Prometheus, Load Testing (Locust), ECS Fargate</span>`),
+        rich(`<span style="color:#27c93f">+  LlamaIndex, SentenceTransformers, Vector Embeddings, Anomaly Detection</span>`),
+        rich(`<span style="color:#27c93f">+  RAG, Cross-Encoder Reranking, Hugging Face Transformers, MLflow</span>`),
+        line(),
+        rich(`<span style="color:#5dd3f3">@@ Coursework Highlighted @@</span>`),
+        rich(`<span style="color:#ff6b6b">-  Building Scalable Distributed Systems, Algorithms, DBMS</span>`),
+        rich(`<span style="color:#27c93f">+  Machine Learning, MLOps, NLP, Foundations of AI</span>`),
+        line(),
+        rich(`<span style="color:#5dd3f3">@@ Certifications @@</span>`),
+        rich(`<span style="color:#ff6b6b">-  (none listed)</span>`),
+        rich(`<span style="color:#27c93f">+  Google Cloud Essentials, Supervised ML: Regression and Classification</span>`),
+        rich(`<span style="color:#27c93f">+  Postman Student Expert</span>`),
+        line(),
+        rich(`<span style="color:#5dd3f3">@@ Vibe @@</span>`),
+        rich(`<span style="color:#ff6b6b">-  "I build systems that scale"</span>`),
+        rich(`<span style="color:#27c93f">+  "I build systems that learn"</span>`),
+        line()
+      );
     },
 
     clear() { outputEl.innerHTML = ''; printWelcome(); },

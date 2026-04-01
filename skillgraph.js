@@ -327,12 +327,22 @@
     hint.textContent = '↗ graph';
     lbl.appendChild(hint);
 
+    hint.classList.add('graph-hint-pulse');
+    setTimeout(() => hint.classList.remove('graph-hint-pulse'), 3000);
+
     const catEl = document.getElementById('skills-categories');
+
+    const bottomHint = document.createElement('div');
+    bottomHint.className = 'skills-graph-bottom-hint';
+    bottomHint.textContent = '→ view as interactive graph';
+    inner.appendChild(bottomHint);
+    bottomHint.addEventListener('click', () => lbl.click());
 
     lbl.addEventListener('click', () => {
       graphActive = !graphActive;
       lbl.classList.toggle('graph-active', graphActive);
       hint.textContent = graphActive ? '↙ list' : '↗ graph';
+      bottomHint.style.display = graphActive ? 'none' : '';
 
       if (graphActive) {
         catEl.style.display = 'none';

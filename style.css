@@ -506,6 +506,28 @@ a { color: inherit; text-decoration: none; }
 .skills-graph-toggle.graph-active .skills-graph-hint {
   opacity: 1;
 }
+@keyframes graphHintPulse {
+  0%   { opacity: 1; text-shadow: 0 0 6px rgba(200,245,90,0.5); }
+  40%  { opacity: 1; text-shadow: 0 0 16px rgba(200,245,90,1); }
+  100% { opacity: 0; text-shadow: none; }
+}
+.skills-graph-hint.graph-hint-pulse {
+  animation: graphHintPulse 3s ease forwards;
+}
+
+/* ── Skills graph bottom hint ── */
+.skills-graph-bottom-hint {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  opacity: 0.5;
+  cursor: pointer;
+  margin-top: 1.75rem;
+  transition: opacity 0.2s;
+}
+.skills-graph-bottom-hint:hover {
+  opacity: 0.9;
+}
 
 /* ── Contact ── */
 .contact-inner { text-align: center; }
