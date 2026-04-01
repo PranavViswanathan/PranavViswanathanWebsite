@@ -16,7 +16,7 @@
   const ALPHA_DECAY = 0.016;
   const ALPHA_MIN = 0.001;
   let animId = null;
-  let graphActive = false;
+  let graphActive = true;
   let initialized = false;
   const mouse = { x: -9999, y: -9999 };
   let hoveredNode = null;
@@ -314,29 +314,81 @@
   window.initSkillGraph = function (categories, projects) {
     canvas = document.createElement('canvas');
     canvas.id = 'skills-graph-canvas';
-    canvas.style.cssText = 'display:none;width:100%;border-radius:12px;border:0.5px solid rgba(240,237,232,0.1);';
+    canvas.style.cssText = 'display:block;width:100%;border-radius:12px;border:0.5px solid rgba(240,237,232,0.1);';
     ctx = canvas.getContext('2d');
 
     const inner = document.querySelector('#skills .section-inner');
     inner.appendChild(canvas);
 
     const lbl = inner.querySelector('.section-label');
-    lbl.classList.add('skills-graph-toggle');
+    lbl.classList.add('skills-graph-toggle', 'graph-active');
     const hint = document.createElement('span');
     hint.className = 'skills-graph-hint';
-    hint.textContent = '↗ graph';
+    hint.textContent = '↙ list';
     lbl.appendChild(hint);
 
     hint.classList.add('graph-hint-pulse');
     setTimeout(() => hint.classList.remove('graph-hint-pulse'), 3000);
 
     const catEl = document.getElementById('skills-categories');
+    catEl.style.display = 'none';
 
     const bottomHint = document.createElement('div');
     bottomHint.className = 'skills-graph-bottom-hint';
     bottomHint.textContent = '→ view as interactive graph';
+    bottomHint.style.display = 'none';
     inner.appendChild(bottomHint);
     bottomHint.addEventListener('click', () => lbl.click());
+
+    // Initialize graph immediately
+    resize(categories, projects);
+    initialized = true;
+    alpha = 1;
+
+    canvas.addEventListener('mousemove', e => {
+      const r = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - r.left;
+      mouse.y = e.clientY - r.top;
+      if (draggedNode) { alpha = Math.max(alpha, 0.3); }
+    });
+    canvas.addEventListener('mouseleave', () => {
+      mouse.x = -9999; mouse.y = -9999; hoveredNode = null;
+      draggedNode = null;
+    });
+    canvas.addEventListener('mousedown', e => {
+      const r = canvas.getBoundingClientRect();
+      const mx = e.clientX - r.left, my = e.clientY - r.top;
+      let best = null, bestD = Infinity;
+      nodes.forEach(n => {
+        const d = Math.hypot(mx - n.x, my - n.y);
+        if (d < n.r + 10 && d < bestD) { bestD = d; best = n; }
+      });
+      if (best) {
+        draggedNode = best;
+        dragOffset.x = mx - best.x;
+        dragOffset.y = my - best.y;
+        canvas.style.cursor = 'grabbing';
+        e.preventDefault();
+      }
+    });
+    window.addEventListener('mouseup', () => {
+      if (draggedNode) {
+        draggedNode = null;
+        canvas.style.cursor = hoveredNode ? 'pointer' : 'default';
+        alpha = Math.max(alpha, 0.4);
+      }
+    });
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        resize(categories, projects);
+        alpha = 1;
+      }, 150);
+    });
+
+    loop();
 
     lbl.addEventListener('click', () => {
       graphActive = !graphActive;
@@ -347,56 +399,6 @@
       if (graphActive) {
         catEl.style.display = 'none';
         canvas.style.display = 'block';
-
-        if (!initialized) {
-          resize(categories, projects);
-          initialized = true;
-          alpha = 1;
-
-          canvas.addEventListener('mousemove', e => {
-            const r = canvas.getBoundingClientRect();
-            mouse.x = e.clientX - r.left;
-            mouse.y = e.clientY - r.top;
-            if (draggedNode) { alpha = Math.max(alpha, 0.3); }
-          });
-          canvas.addEventListener('mouseleave', () => {
-            mouse.x = -9999; mouse.y = -9999; hoveredNode = null;
-            draggedNode = null;
-          });
-          canvas.addEventListener('mousedown', e => {
-            const r = canvas.getBoundingClientRect();
-            const mx = e.clientX - r.left, my = e.clientY - r.top;
-            let best = null, bestD = Infinity;
-            nodes.forEach(n => {
-              const d = Math.hypot(mx - n.x, my - n.y);
-              if (d < n.r + 10 && d < bestD) { bestD = d; best = n; }
-            });
-            if (best) {
-              draggedNode = best;
-              dragOffset.x = mx - best.x;
-              dragOffset.y = my - best.y;
-              canvas.style.cursor = 'grabbing';
-              e.preventDefault();
-            }
-          });
-          window.addEventListener('mouseup', () => {
-            if (draggedNode) {
-              draggedNode = null;
-              canvas.style.cursor = hoveredNode ? 'pointer' : 'default';
-              alpha = Math.max(alpha, 0.4);
-            }
-          });
-
-          let resizeTimer;
-          window.addEventListener('resize', () => {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(() => {
-              resize(categories, projects);
-              alpha = 1;
-            }, 150);
-          });
-        }
-
         alpha = 1;
         if (!animId) loop();
       } else {
