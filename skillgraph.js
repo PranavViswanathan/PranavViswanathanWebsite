@@ -20,6 +20,8 @@
   let initialized = false;
   const mouse = { x: -9999, y: -9999 };
   let hoveredNode = null;
+  let draggedNode = null;
+  let dragOffset = { x: 0, y: 0 };
 
   /* ── Tech-to-skill matching ── */
   function matches(tech, skill) {
@@ -118,8 +120,31 @@
       n.vy += (H / 2 - n.y) * 0.006 * a;
     });
 
+    // Hover push: repel nearby nodes away from hovered project
+    if (hoveredNode && hoveredNode.type === 'project') {
+      const PUSH_RADIUS = 90, PUSH_STR = 320;
+      nodes.forEach(n => {
+        if (n === hoveredNode) return;
+        const dx = n.x - hoveredNode.x, dy = n.y - hoveredNode.y;
+        const d = Math.sqrt(dx * dx + dy * dy) || 1;
+        if (d < PUSH_RADIUS) {
+          const f = PUSH_STR * (1 - d / PUSH_RADIUS) / d;
+          n.vx += dx * f * 0.016;
+          n.vy += dy * f * 0.016;
+        }
+      });
+    }
+
     // Integrate with damping + boundary clamp
     nodes.forEach(n => {
+      if (n === draggedNode) {
+        n.x = mouse.x - dragOffset.x;
+        n.y = mouse.y - dragOffset.y;
+        n.x = Math.max(n.r + 6, Math.min(W - n.r - 6, n.x));
+        n.y = Math.max(n.r + 6, Math.min(H - n.r - 6, n.y));
+        n.vx = 0; n.vy = 0;
+        return;
+      }
       n.vx *= 0.78; n.vy *= 0.78;
       n.x = Math.max(n.r + 6, Math.min(W - n.r - 6, n.x + n.vx));
       n.y = Math.max(n.r + 6, Math.min(H - n.r - 6, n.y + n.vy));
@@ -128,6 +153,7 @@
 
   /* ── Hover detection ── */
   function updateHover() {
+    if (draggedNode) return;
     let best = null, bestD = Infinity;
     nodes.forEach(n => {
       const d = Math.hypot(mouse.x - n.x, mouse.y - n.y);
@@ -135,6 +161,8 @@
     });
     hoveredNode = best;
     canvas.style.cursor = best ? 'pointer' : 'default';
+    // Keep simulation alive while hovering a project so push force stays active
+    if (best && best.type === 'project') alpha = Math.max(alpha, 0.15);
   }
 
   function neighborSet(node) {
@@ -199,14 +227,12 @@
       const isHov = n === hoveredNode;
       const isCon = nb && nb.has(n.id) && n !== hoveredNode;
 
-      if (n.type === 'project') {
-        ctx.font = isHov
-          ? `600 12px 'Plus Jakarta Sans',sans-serif`
-          : `500 11px 'Plus Jakarta Sans',sans-serif`;
+      if (n.type === 'project' && isHov) {
+        ctx.font = `600 12px 'Plus Jakarta Sans',sans-serif`;
         ctx.textBaseline = 'bottom';
-        ctx.fillStyle = isHov ? '#c8f55a' : 'rgba(240,237,232,0.85)';
+        ctx.fillStyle = '#c8f55a';
         ctx.fillText(n.label, n.x, n.y - n.r - 5);
-      } else if (isHov || isCon) {
+      } else if (n.type !== 'project' && (isHov || isCon)) {
         ctx.font = `${isHov ? 600 : 400} 10px 'Plus Jakarta Sans',sans-serif`;
         ctx.textBaseline = 'top';
         ctx.fillStyle = n.color;
@@ -321,9 +347,34 @@
             const r = canvas.getBoundingClientRect();
             mouse.x = e.clientX - r.left;
             mouse.y = e.clientY - r.top;
+            if (draggedNode) { alpha = Math.max(alpha, 0.3); }
           });
           canvas.addEventListener('mouseleave', () => {
             mouse.x = -9999; mouse.y = -9999; hoveredNode = null;
+            draggedNode = null;
+          });
+          canvas.addEventListener('mousedown', e => {
+            const r = canvas.getBoundingClientRect();
+            const mx = e.clientX - r.left, my = e.clientY - r.top;
+            let best = null, bestD = Infinity;
+            nodes.forEach(n => {
+              const d = Math.hypot(mx - n.x, my - n.y);
+              if (d < n.r + 10 && d < bestD) { bestD = d; best = n; }
+            });
+            if (best) {
+              draggedNode = best;
+              dragOffset.x = mx - best.x;
+              dragOffset.y = my - best.y;
+              canvas.style.cursor = 'grabbing';
+              e.preventDefault();
+            }
+          });
+          window.addEventListener('mouseup', () => {
+            if (draggedNode) {
+              draggedNode = null;
+              canvas.style.cursor = hoveredNode ? 'pointer' : 'default';
+              alpha = Math.max(alpha, 0.4);
+            }
           });
 
           let resizeTimer;

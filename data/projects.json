@@ -4,7 +4,7 @@
             "display": true,
             "title": "OmniRAG",
             "description": "OmniRAG is a decentralized RAG architecture leveraging local LLM inference via Ollama. It orchestrates asynchronous web-scraping, session-isolated vector persistence, and real-time knowledge synthesis, all visualized through an immersive, React-driven semantic graph providing high-fidelity technical insights.",
-            "tech": ["TypeScript", "Ollama", "LanceDB", "Docker", "RAG", "Vector Database", "Web Scraping"],
+            "tech": ["TypeScript", "Ollama", "LanceDB", "Docker", "RAG", "Vector Database", "Web Scraping", "SentenceTransformers", "React", "Three.js", "Hugging Face Transformers", "Cross-Encoder Reranking", "LlamaIndex"],
             "github": "https://github.com/PranavViswanathan/OmniRAG",
             "demo": ""
         },
@@ -12,7 +12,7 @@
             "display": true,
             "title": "Rebalance-AI",
             "description": "An end-to-end MLOps platform leveraging distributed orchestration, experiment tracking, and containerized microservices to deliver real-time demand forecasting for Boston's Bluebikes network. The system implements a multi-algorithm ensemble architecture with automated hyperparameter tuning.",
-            "tech": ["Python", "Apache Airflow", "MLflow", "Docker", "Machine Learning", "Predictive Analytics"],
+            "tech": ["Python", "Apache Airflow", "MLflow", "Docker", "Machine Learning", "Predictive Analytics", "Github Actions", "Google Cloud Platform", "Shell Scripting"],
             "github": "https://github.com/PranavViswanathan/Rebalance-AI",
             "demo": ""
         },
@@ -20,7 +20,7 @@
             "display": true,
             "title": "SwarmCoordinator",
             "description": "Distributed drone swarm coordination system with Raft consensus for fault tolerance, FastAPI backend with physics simulation, and real-time 3D visualization using Three.js. Features leader election, formation control, collision avoidance via Artificial Potential Fields, WebSocket streaming at 10Hz, and comprehensive REST API with automated deployment.",
-            "tech": ["Python", "FastAPI", "Raft Consensus", "Three.js", "WebSocket", "Docker"],
+            "tech": ["Python", "FastAPI", "Raft Consensus", "Three.js", "WebSocket", "Docker", "Async Architecture"],
             "github": "https://github.com/PranavViswanathan/SwarmCoordinator",
             "demo": ""
         },
@@ -65,7 +65,7 @@
             "demo": ""
         },
         {
-            "display": false,
+            "display": true,
             "title": "Kernal-Combat",
             "description": "Kernal-Combat is a terminal-themed coding arena built with vanilla JS and CodeMirror. Users can solve algorithmic challenges, compare solutions, and trigger automated \"combat\" where code metrics (runtime, space usage, LOC, solve speed) determine the winner.",
             "tech": ["HTML", "CSS", "JavaScript", "CodeMirror"],
@@ -87,6 +87,14 @@
             "tech": ["Python", "Regex"],
             "github": "https://github.com/PranavViswanathan/Regex-LogFile-Searching",
             "demo": ""
-        }
+        },
+        {
+    "display": true,
+    "title": "Image Manipulation Toolkit",
+    "description": "A comprehensive image processing toolkit built in Java featuring both CLI and GUI interfaces. Implements custom algorithms for RGB channel decomposition, histogram generation with auto color-correction, Haar wavelet compression, split-view transformations, levels adjustment, and region-based masking operations using MVC architecture.",
+    "tech": ["Java", "MVC Architecture", "Command Pattern", "Swing GUI", "Image Processing", "Microservices"],
+    "github": "https://github.com/PranavViswanathan/Image-Manipulation-Toolkit",
+    "demo": ""
+}
     ]
 }

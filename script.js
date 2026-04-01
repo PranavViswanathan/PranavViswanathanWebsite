@@ -85,16 +85,33 @@ function renderProjects(list) {
     card.style.setProperty('--ty', dir.ty);
     card.style.setProperty('--rot', dir.rot);
     card.style.setProperty('--d', `${(i % 3) * 0.08}s`);
+    const visibleTech = p.tech.slice(0, 6);
+    const hiddenTech = p.tech.slice(6);
+    const hiddenTags = hiddenTech.map(t => `<span class="tech-tag tech-tag-hidden">${esc(t)}</span>`).join('');
+    const moreIndicator = hiddenTech.length > 0
+      ? `<span class="tech-tag tech-tag-more">+${hiddenTech.length}</span>`
+      : '';
     card.innerHTML = `
       <div class="project-title">${esc(p.title)}</div>
       <div class="project-desc">${esc(p.description)}</div>
-      <div class="project-tech">${p.tech.map(t => `<span class="tech-tag">${esc(t)}</span>`).join('')}</div>
+      <div class="project-tech">
+        ${visibleTech.map(t => `<span class="tech-tag">${esc(t)}</span>`).join('')}
+        ${moreIndicator}
+        ${hiddenTags}
+      </div>
       <div class="project-links">
         ${p.github ? `<a class="project-link" href="${p.github}" target="_blank" rel="noopener">GitHub &rarr;</a>` : ''}
         ${p.demo ? `<a class="project-link" href="${p.demo}" target="_blank" rel="noopener">Demo &rarr;</a>` : ''}
         ${!p.github && !p.demo ? '<span class="project-link dim">In Progress</span>' : ''}
       </div>
     `;
+    if (hiddenTech.length > 0) {
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('a')) return;
+        card.classList.toggle('expanded');
+      });
+    }
     grid.appendChild(card);
   });
 }
