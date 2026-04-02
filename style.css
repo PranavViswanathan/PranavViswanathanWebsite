@@ -264,6 +264,52 @@ a { color: inherit; text-decoration: none; }
 }
 .btn-ghost:hover { border-color: rgba(255,255,255,0.25); }
 
+/* Resume dropdown */
+.resume-dropdown {
+  position: relative;
+  display: inline-flex;
+}
+.resume-toggle {
+  background: none;
+  font-family: inherit;
+}
+.resume-chevron {
+  transition: transform 0.2s var(--ease);
+}
+.resume-dropdown.open .resume-chevron {
+  transform: rotate(180deg);
+}
+.resume-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 100%;
+  background: var(--surface, #111);
+  border: 0.5px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  list-style: none;
+  margin: 0;
+  padding: 4px;
+  z-index: 100;
+  white-space: nowrap;
+}
+.resume-dropdown.open .resume-menu {
+  display: block;
+}
+.resume-menu li a {
+  display: block;
+  padding: 0.6rem 1rem;
+  font-size: 13px;
+  color: var(--text);
+  border-radius: 8px;
+  transition: background 0.15s;
+}
+.resume-menu li a:hover {
+  background: rgba(255,255,255,0.07);
+}
+
 .scroll-hint {
   position: absolute;
   bottom: 2.5rem; left: 8vw;

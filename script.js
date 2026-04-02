@@ -30,7 +30,6 @@ function renderAbout(d) {
   setText('about-edu', Array.isArray(d.education) ? d.education.join(' · ') : d.education);
   setText('about-loc', d.location);
   setText('nav-name', d.name);
-  if (d.resume) el('hero-resume').href = d.resume;
 
   // Typing animation for tagline
   const taglineEl = el('hero-tagline');
@@ -221,5 +220,38 @@ const div = (cls, style) => {
   return d;
 };
 const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+
+/* ── Resume dropdown ── */
+async function initResumeDropdown() {
+  const dropdown = document.querySelector('.resume-dropdown');
+  if (!dropdown) return;
+  const toggle = dropdown.querySelector('.resume-toggle');
+  const menu = dropdown.querySelector('.resume-menu');
+
+  const resumes = await load('assets/resumes/resumes.json');
+  Object.entries(resumes).forEach(([title, file]) => {
+    const li = document.createElement('li');
+    li.setAttribute('role', 'menuitem');
+    const a = document.createElement('a');
+    a.href = `assets/resumes/${file}`;
+    a.target = '_blank';
+    a.textContent = title;
+    li.appendChild(a);
+    menu.appendChild(li);
+  });
+
+  toggle.addEventListener('click', e => {
+    e.stopPropagation();
+    const open = dropdown.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+
+  document.addEventListener('click', () => {
+    dropdown.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  });
+}
+
+document.addEventListener('DOMContentLoaded', initResumeDropdown);
 
 init();
