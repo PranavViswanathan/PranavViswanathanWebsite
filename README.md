@@ -9,6 +9,7 @@ A modern, scroll-driven portfolio website built with vanilla HTML, CSS, and Java
 
 <img width="1780" height="976" alt="image" src="https://github.com/user-attachments/assets/e7a81822-3417-48f8-bafe-e163b2402103" />
 
+<img width="1268" height="661" alt="image" src="https://github.com/user-attachments/assets/a5dfa1ae-745b-474f-a5da-5b9eef9fd70a" />
 
 
 ---
