@@ -4,7 +4,8 @@ A modern, scroll-driven portfolio website built with vanilla HTML, CSS, and Java
 
 **Live:** [pranavvis.tech](https://pranavvis.tech)
 
-<img width="2020" height="1185" alt="image" src="https://github.com/user-attachments/assets/c79463e9-ea80-4c31-a250-8cf97bd9f8bc" />
+<img width="2042" height="1126" alt="image" src="https://github.com/user-attachments/assets/b7563222-e84d-42c5-ac2b-c027119508cf" />
+
 
 <img width="1780" height="976" alt="image" src="https://github.com/user-attachments/assets/e7a81822-3417-48f8-bafe-e163b2402103" />
 
