@@ -332,14 +332,26 @@
     setTimeout(() => hint.classList.remove('graph-hint-pulse'), 3000);
 
     const catEl = document.getElementById('skills-categories');
-    catEl.style.display = 'none';
 
     const bottomHint = document.createElement('div');
     bottomHint.className = 'skills-graph-bottom-hint';
     bottomHint.textContent = '→ view as interactive graph';
-    bottomHint.style.display = 'none';
     inner.appendChild(bottomHint);
     bottomHint.addEventListener('click', () => lbl.click());
+
+    const isMobile = window.innerWidth < 768;
+    if (isMobile) {
+      graphActive = false;
+      lbl.classList.remove('graph-active');
+      hint.textContent = '↗ graph';
+      catEl.style.display = '';
+      canvas.style.display = 'none';
+      bottomHint.style.display = '';
+    } else {
+      catEl.style.display = 'none';
+      canvas.style.display = 'block';
+      bottomHint.style.display = 'none';
+    }
 
     // Initialize graph immediately
     resize(categories, projects);

@@ -1,6 +1,14 @@
 {
     "projects": [
         {
+    "display": true,
+    "title": "CaduceusAI",
+    "description": "A local-first, three-tier medical AI platform built on FastAPI microservices and Next.js 14, with on-device LLM inference via Ollama (llama3/mistral) over an async httpx client with rule-based fallback. Features Redis-cached risk assessments, a clinician feedback loop architected to feed a LoRA fine-tuning pipeline via Hugging Face PEFT, cookie-first HS256 JWT auth, AES-256 PHI encryption at rest, and an append-only audit log — fully orchestrated with Docker Compose and Alembic-managed schema migrations.",
+    "tech": ["Python", "FastAPI", "Next.js", "PostgreSQL", "Redis", "Docker", "Ollama", "LLM Inference", "LoRA Fine-Tuning", "Hugging Face PEFT", "Alembic", "TypeScript"],
+    "github": "https://github.com/PranavViswanathan/CaduceusAI",
+    "demo": ""
+},
+        {
             "display": true,
             "title": "OmniRAG",
             "description": "OmniRAG is a decentralized RAG architecture leveraging local LLM inference via Ollama. It orchestrates asynchronous web-scraping, session-isolated vector persistence, and real-time knowledge synthesis, all visualized through an immersive, React-driven semantic graph providing high-fidelity technical insights.",
