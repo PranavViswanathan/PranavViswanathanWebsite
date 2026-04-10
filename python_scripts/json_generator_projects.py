@@ -2,11 +2,15 @@ import requests
 import json
 import re
 from typing import Optional
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 USERNAME = "PranavViswanathan"
 BASE_API = "https://api.github.com"
+TOKEN = os.getenv("GITHUB_TOKEN")
 
-# Map common file extensions / filenames to tech labels
 EXT_TO_TECH = {
     "py": "Python", "ipynb": "Jupyter Notebook",
     "js": "JavaScript", "ts": "TypeScript", "jsx": "React", "tsx": "React",
@@ -61,7 +65,6 @@ def get_languages(repo_full_name: str, token: Optional[str] = None) -> list:
 
 
 def get_file_tree(repo_full_name: str, token: Optional[str] = None) -> list:
-    """Return flat list of all filenames in the default branch tree."""
     headers = {"Authorization": f"token {token}"} if token else {}
     r = requests.get(
         f"{BASE_API}/repos/{repo_full_name}/git/trees/HEAD",
@@ -131,7 +134,6 @@ def get_demo_url(readme: str, homepage: Optional[str]) -> str:
         m = re.search(pat, readme, re.IGNORECASE)
         if m:
             url = m.group(1)
-            # Exclude github.com links
             if "github.com" not in url:
                 return url
     return ""
@@ -139,7 +141,7 @@ def get_demo_url(readme: str, homepage: Optional[str]) -> str:
 
 def build_project_json(
     username: str = USERNAME,
-    token: Optional[str] = None,
+    token: Optional[str] = TOKEN,
     skip_forks: bool = True,
 ) -> list:
     repos = get_repos(username, token)
@@ -153,7 +155,7 @@ def build_project_json(
         full_name = repo["full_name"]
         print(f"Processing: {name}")
 
-        languages = get_language(full_name, token)
+        languages = get_languages(full_name, token)
         file_paths = get_file_tree(full_name, token)
         readme = get_readme(full_name, token)
 
@@ -162,7 +164,7 @@ def build_project_json(
         demo = get_demo_url(readme, repo.get("homepage"))
 
         projects.append({
-            "display": False,          
+            "display": False,
             "title": name,
             "description": description,
             "tech": tech,
@@ -172,15 +174,15 @@ def build_project_json(
 
     return projects
 
-get_language = get_languages   
-
 
 if __name__ == "__main__":
-    TOKEN = None 
+    if not TOKEN:
+        raise ValueError("GITHUB_TOKEN not found in .env")
 
-    projects = build_project_json(token=TOKEN)
+    projects = build_project_json()
 
     output_path = "data/github_projects_raw.json"
+    os.makedirs("data", exist_ok=True)
     with open(output_path, "w") as f:
         json.dump(projects, f, indent=4)
 
