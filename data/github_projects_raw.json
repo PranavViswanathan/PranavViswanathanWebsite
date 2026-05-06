@@ -1,0 +1,560 @@
+[
+    {
+        "display": false,
+        "title": "ApacheServerBasedCode",
+        "description": "Basic Java serverlet that runs on a Apache tomcat server.",
+        "tech": [
+            "HTML",
+            "Java"
+        ],
+        "github": "https://github.com/PranavViswanathan/ApacheServerBasedCode",
+        "demo": ""
+    },
+    {
+        "display": false,
+        "title": "BeachWaterQuality-CSE2004Project",
+        "description": "Project made for CSE-2004 J comp Project",
+        "tech": [
+            "CSS",
+            "HTML",
+            "Java"
+        ],
+        "github": "https://github.com/PranavViswanathan/BeachWaterQuality-CSE2004Project",
+        "demo": "https://pranavviswanathandbms.herokuapp.com/"
+    },
+    {
+        "display": false,
+        "title": "CaduceusAI",
+        "description": "Three-tier medical AI platform built with FastAPI, Next.js 14, PostgreSQL with Alembic migrations, Redis, and Ollama. LangGraph StateGraph orchestrates a clinical decision support pipeline featuring triage classification, RAG retrieval from ChromaDB using all-MiniLM-L6-v2 embeddings, chain-of-thought reasoning, PHI escalation with Fernet/AES-256 en",
+        "tech": [
+            "AWS",
+            "CSS",
+            "Docker",
+            "Dockerfile",
+            "FastAPI",
+            "HCL",
+            "JavaScript",
+            "MLflow",
+            "Makefile",
+            "Next.js",
+            "PostgreSQL",
+            "Python",
+            "React",
+            "Redis",
+            "SQL",
+            "Terraform",
+            "TypeScript",
+            "YAML"
+        ],
+        "github": "https://github.com/PranavViswanathan/CaduceusAI",
+        "demo": ""
+    },
+    {
+        "display": false,
+        "title": "CancerDataClassifier",
+        "description": "DS notebook to classify data from a lung cancer dataset",
+        "tech": [
+            "Jupyter Notebook",
+            "Python"
+        ],
+        "github": "https://github.com/PranavViswanathan/CancerDataClassifier",
+        "demo": ""
+    },
+    {
+        "display": false,
+        "title": "DocNextDoorFlask",
+        "description": "",
+        "tech": [
+            "CSS",
+            "HTML",
+            "Python"
+        ],
+        "github": "https://github.com/PranavViswanathan/DocNextDoorFlask",
+        "demo": ""
+    },
+    {
+        "display": false,
+        "title": "EcoStockAI",
+        "description": "ML-driven inventory system: sklearn stockout forecasting, Evidently AI drift detection, Airflow-orchestrated retraining with MLflow RMSE gating. FastAPI \u00b7 React \u00b7 PostgreSQL \u00b7 Docker.",
+        "tech": [
+            "Airflow",
+            "Bash",
+            "CSS",
+            "Docker",
+            "Dockerfile",
+            "FastAPI",
+            "HTML",
+            "JavaScript",
+            "MLflow",
+            "Next.js",
+            "PostgreSQL",
+            "Python",
+            "React",
+            "SQL",
+            "Shell",
+            "YAML"
+        ],
+        "github": "https://github.com/PranavViswanathan/EcoStockAI",
+        "demo": ""
+    },
+    {
+        "display": false,
+        "title": "FastApi",
+        "description": "",
+        "tech": [
+            "FastAPI",
+            "Python"
+        ],
+        "github": "https://github.com/PranavViswanathan/FastApi",
+        "demo": ""
+    },
+    {
+        "display": false,
+        "title": "FlaskPractice",
+        "description": "",
+        "tech": [
+            "Flask",
+            "HTML",
+            "Python"
+        ],
+        "github": "https://github.com/PranavViswanathan/FlaskPractice",
+        "demo": "https://flask-api-prac.herokuapp.com/"
+    },
+    {
+        "display": false,
+        "title": "ForestFireAnalysis",
+        "description": "![forest fire](https://github.com/PranavViswanathan/ForestFireAnalysis/blob/main/ReadmeResources/forestFire.gif)",
+        "tech": [
+            "R"
+        ],
+        "github": "https://github.com/PranavViswanathan/ForestFireAnalysis",
+        "demo": ""
+    },
+    {
+        "display": false,
+        "title": "gh-actions-gcp-beginner-lab",
+        "description": "Welcome to the \"GitHub Actions and GCP Connections\" beginner lab! In this lab, you will learn how to automate a machine learning workflow using GitHub Actions and Google Cloud Platform (GCP). By the e",
+        "tech": [
+            "GCP",
+            "Python",
+            "YAML"
+        ],
+        "github": "https://github.com/PranavViswanathan/gh-actions-gcp-beginner-lab",
+        "demo": ""
+    },
+    {
+        "display": false,
+        "title": "GitInto-Website",
+        "description": "",
+        "tech": [
+            "HTML"
+        ],
+        "github": "https://github.com/PranavViswanathan/GitInto-Website",
+        "demo": ""
+    },
+    {
+        "display": false,
+        "title": "HawkEye",
+        "description": "HawkEye is a system for multi-sensor fusion object detection, designed to improve target detection reliability in low-visibility environments (fog, smoke, night vision) using combined RGB, Thermal, and LiDAR data.",
+        "tech": [
+            "Bash",
+            "Docker",
+            "Dockerfile",
+            "OpenCV",
+            "PyTorch",
+            "Python",
+            "Shell"
+        ],
+        "github": "https://github.com/PranavViswanathan/HawkEye",
+        "demo": ""
+    },
+    {
+        "display": false,
+        "title": "HomeSecuritySystem",
+        "description": "![Copy of Pranav Viswanathan](https://github.com/PranavViswanathan/HomeSecuritySystem/blob/main/ReadmeResources/Home%20Security%20System.gif)",
+        "tech": [
+            "C++",
+            "HTML",
+            "Python"
+        ],
+        "github": "https://github.com/PranavViswanathan/HomeSecuritySystem",
+        "demo": ""
+    },
+    {
+        "display": false,
+        "title": "HVACAnomalyDetection",
+        "description": "",
+        "tech": [
+            "Jupyter Notebook",
+            "Python"
+        ],
+        "github": "https://github.com/PranavViswanathan/HVACAnomalyDetection",
+        "demo": ""
+    },
+    {
+        "display": false,
+        "title": "Image-Manipulation-Toolkit",
+        "description": "A comprehensive image processing toolkit built entirely in Java featuring both CLI and GUI interfaces for advanced image manipulation. Implements custom algorithms for RGB channel decomposition, histogram generation with auto color-correction, HAR-based compression, split-view transformations, and region-based masking operations. The system leverag",
+        "tech": [
+            "Java"
+        ],
+        "github": "https://github.com/PranavViswanathan/Image-Manipulation-Toolkit",
+        "demo": ""
+    },
+    {
+        "display": false,
+        "title": "Job-Listing-Generator",
+        "description": "",
+        "tech": [
+            "Python"
+        ],
+        "github": "https://github.com/PranavViswanathan/Job-Listing-Generator",
+        "demo": ""
+    },
+    {
+        "display": false,
+        "title": "JobHuntr",
+        "description": "A comprehensive tool to automate your job search for 2026/2027 internships and new grad roles. It scrapes job boards (GitHub, etc.), filters for your keywords, and provides a Kanban board to track your applications.",
+        "tech": [
+            "Bash",
+            "CSS",
+            "Docker",
+            "HTML",
+            "JavaScript",
+            "Python",
+            "React",
+            "Shell",
+            "YAML"
+        ],
+        "github": "https://github.com/PranavViswanathan/JobHuntr",
+        "demo": ""
+    },
+    {
+        "display": false,
+        "title": "Kernal-Combat",
+        "description": "Kernal-Combat is a terminal-themed coding arena built with vanilla JS and CodeMirror. Users can solve algorithmic challenges, compare solutions, and trigger automated \u201ccombat\u201d where code metrics (runtime, space usage, LOC, solve speed) determine the winner. The platform includes local profile storage, problem history, and lightweight gamification t",
+        "tech": [
+            "CSS",
+            "HTML",
+            "JavaScript"
+        ],
+        "github": "https://github.com/PranavViswanathan/Kernal-Combat",
+        "demo": "https://pranavviswanathan.github.io/Kernal-Combat/"
+    },
+    {
+        "display": false,
+        "title": "LandslideAnalysis",
+        "description": "R analysis on GLC Dataset",
+        "tech": [
+            "R"
+        ],
+        "github": "https://github.com/PranavViswanathan/LandslideAnalysis",
+        "demo": ""
+    },
+    {
+        "display": false,
+        "title": "Lucera",
+        "description": "High-fidelity video pipeline combining Real-ESRGAN upscaling, RIFE interpolation, and Whisper captioning. Features OpenCV analysis, adaptive HLS packaging, and VMAF verification for automated, production-grade enhancement.",
+        "tech": [
+            "Bash",
+            "CUDA",
+            "Docker",
+            "Dockerfile",
+            "OpenCV",
+            "Python",
+            "Shell"
+        ],
+        "github": "https://github.com/PranavViswanathan/Lucera",
+        "demo": ""
+    },
+    {
+        "display": false,
+        "title": "Maintaning-Streaks-",
+        "description": "",
+        "tech": [
+            "HTML",
+            "Python"
+        ],
+        "github": "https://github.com/PranavViswanathan/Maintaning-Streaks-",
+        "demo": ""
+    },
+    {
+        "display": false,
+        "title": "MedicalInsuraceCostsMlModel",
+        "description": "ML Model developed to perform Linear regression on a dataset",
+        "tech": [
+            "Jupyter Notebook",
+            "Python"
+        ],
+        "github": "https://github.com/PranavViswanathan/MedicalInsuraceCostsMlModel",
+        "demo": ""
+    },
+    {
+        "display": false,
+        "title": "MERC",
+        "description": "A graph-based deep learning model for utterance-level emotion recognition in dialogue. MERC fuses text (RoBERTa), audio (eGeMAPS), and video features through cross-modal attention and a relational temporal graph neural network, trained and evaluated on the unified MELD + IEMOCAP benchmark.",
+        "tech": [
+            "CUDA",
+            "Docker",
+            "Dockerfile",
+            "Jupyter Notebook",
+            "Python",
+            "YAML"
+        ],
+        "github": "https://github.com/PranavViswanathan/MERC",
+        "demo": ""
+    },
+    {
+        "display": false,
+        "title": "NergyLiveHVAC",
+        "description": "",
+        "tech": [
+            "Jupyter Notebook",
+            "Python"
+        ],
+        "github": "https://github.com/PranavViswanathan/NergyLiveHVAC",
+        "demo": ""
+    },
+    {
+        "display": false,
+        "title": "NeuroPilot",
+        "description": "A comparative reinforcement learning framework evaluating Q-Learning versus Deep Q-Networks (DQN) on the Gymnasium CarRacing-v3 environment. The system implements both tabular Q-learning with discretized state spaces and a CNN-based DQN architecture with experience replay and target networks, enabling autonomous agents to learn optimal racing polic",
+        "tech": [
+            "Python"
+        ],
+        "github": "https://github.com/PranavViswanathan/NeuroPilot",
+        "demo": ""
+    },
+    {
+        "display": false,
+        "title": "OmniRAG",
+        "description": "OmniRAG is a decentralized RAG architecture leveraging local LLM inference via Ollama. It orchestrates asynchronous web-scraping, session-isolated vector persistence, and real-time knowledge synthesis, all visualized through an immersive, React-driven semantic graph providing high-fidelity technical insights.",
+        "tech": [
+            "Bash",
+            "CSS",
+            "Docker",
+            "Dockerfile",
+            "FastAPI",
+            "JavaScript",
+            "Next.js",
+            "Python",
+            "React",
+            "Shell",
+            "TypeScript",
+            "YAML"
+        ],
+        "github": "https://github.com/PranavViswanathan/OmniRAG",
+        "demo": ""
+    },
+    {
+        "display": false,
+        "title": "PostmanStudentExpert",
+        "description": "This repository contains the notes obtained during my Postman Student Expert Traning.",
+        "tech": [
+            "JavaScript"
+        ],
+        "github": "https://github.com/PranavViswanathan/PostmanStudentExpert",
+        "demo": ""
+    },
+    {
+        "display": false,
+        "title": "PranavaOku",
+        "description": "A lightweight, self-hosted cloud platform built with Flask and Pulumi Automation API for deploying static sites (S3) and virtual machines (EC2) on AWS. Each resource is managed as an independent Pulumi stack through a simple web interface, combining the ease of PaaS platforms like Heroku with full infrastructure-as-code control\u2014perfect for develope",
+        "tech": [
+            "AWS",
+            "CSS",
+            "Flask",
+            "HTML",
+            "JavaScript",
+            "Python",
+            "YAML"
+        ],
+        "github": "https://github.com/PranavViswanathan/PranavaOku",
+        "demo": ""
+    },
+    {
+        "display": false,
+        "title": "PranavViswanathan",
+        "description": "About me",
+        "tech": [
+            "AWS",
+            "Django",
+            "Docker",
+            "Express",
+            "Flask",
+            "GCP",
+            "MySQL",
+            "OpenCV",
+            "PostgreSQL",
+            "PyTorch",
+            "React",
+            "TensorFlow",
+            "Terraform",
+            "YAML",
+            "scikit-learn"
+        ],
+        "github": "https://github.com/PranavViswanathan/PranavViswanathan",
+        "demo": "https://pranavvis.tech"
+    },
+    {
+        "display": false,
+        "title": "PranavViswanathanWebsite",
+        "description": "A sleek, interactive terminal-themed portfolio website showcasing my projects, skills, and experience as a Software Developer & ML Engineer.",
+        "tech": [
+            "CSS",
+            "Docker",
+            "FastAPI",
+            "HTML",
+            "JavaScript",
+            "Python",
+            "React",
+            "Vue.js"
+        ],
+        "github": "https://github.com/PranavViswanathan/PranavViswanathanWebsite",
+        "demo": "https://pranavvis.tech"
+    },
+    {
+        "display": false,
+        "title": "Project-Asclepius",
+        "description": "The healthcare industry is a vital existence in any country. However, it has come to our notice that there are a few areas where improvements can be made, or maybe even completely overhauled.",
+        "tech": [
+            "CSS",
+            "Flask",
+            "HTML",
+            "Java",
+            "Python"
+        ],
+        "github": "https://github.com/PranavViswanathan/Project-Asclepius",
+        "demo": ""
+    },
+    {
+        "display": false,
+        "title": "pyAutoGui",
+        "description": "My notes and programs on pyautogui",
+        "tech": [
+            "Python"
+        ],
+        "github": "https://github.com/PranavViswanathan/pyAutoGui",
+        "demo": ""
+    },
+    {
+        "display": false,
+        "title": "Rebalance-AI",
+        "description": "An end-to-end MLOps platform leveraging distributed orchestration, experiment tracking, and containerized microservices to deliver real-time demand forecasting for Boston's Bluebikes network. The system implements a multi-algorithm ensemble architecture with automated hyperparameter tuning.",
+        "tech": [
+            "Airflow",
+            "Bash",
+            "CSS",
+            "Docker",
+            "Dockerfile",
+            "Express",
+            "Flask",
+            "GCP",
+            "HTML",
+            "JavaScript",
+            "Jupyter Notebook",
+            "MLflow",
+            "Python",
+            "React",
+            "Shell",
+            "TypeScript",
+            "YAML"
+        ],
+        "github": "https://github.com/PranavViswanathan/Rebalance-AI",
+        "demo": ""
+    },
+    {
+        "display": false,
+        "title": "Regex-LogFile-Searching",
+        "description": "A program which is used to check for warnings in a sample log file",
+        "tech": [
+            "Python",
+            "Regex"
+        ],
+        "github": "https://github.com/PranavViswanathan/Regex-LogFile-Searching",
+        "demo": ""
+    },
+    {
+        "display": false,
+        "title": "SampleApiHeroku",
+        "description": "",
+        "tech": [
+            "Procfile",
+            "Python"
+        ],
+        "github": "https://github.com/PranavViswanathan/SampleApiHeroku",
+        "demo": ""
+    },
+    {
+        "display": false,
+        "title": "Selenium",
+        "description": "Personal Notes on Selenium",
+        "tech": [
+            "Python"
+        ],
+        "github": "https://github.com/PranavViswanathan/Selenium",
+        "demo": ""
+    },
+    {
+        "display": false,
+        "title": "SQL_Injection_Simulation",
+        "description": "An educational cybersecurity simulation demonstrating SQL injection (SQLI) attack vectors and their exploitation techniques for database manipulation. Built for OWASP VIT Student Chapter, this project showcases how malicious SQL queries can bypass authentication mechanisms, extract unauthorized data, and compromise database integrity through backen",
+        "tech": [
+            "CSS",
+            "MySQL",
+            "PHP",
+            "SQL"
+        ],
+        "github": "https://github.com/PranavViswanathan/SQL_Injection_Simulation",
+        "demo": ""
+    },
+    {
+        "display": false,
+        "title": "SwarmCoordinator",
+        "description": "Distributed drone swarm coordination system with Raft consensus for fault tolerance, FastAPI backend with physics simulation, and real-time 3D visualization using Three.js. Features leader election, formation control, collision avoidance via Artificial Potential Fields, WebSocket streaming at 10Hz, and comprehensive REST API with automated deployme",
+        "tech": [
+            "Bash",
+            "Docker",
+            "FastAPI",
+            "Next.js",
+            "Python",
+            "Raft",
+            "React",
+            "Shell"
+        ],
+        "github": "https://github.com/PranavViswanathan/SwarmCoordinator",
+        "demo": ""
+    },
+    {
+        "display": false,
+        "title": "test",
+        "description": "",
+        "tech": [],
+        "github": "https://github.com/PranavViswanathan/test",
+        "demo": ""
+    },
+    {
+        "display": false,
+        "title": "tetraflip-hackathon",
+        "description": "Web application made for the Tetraflip 2021 Hackathon organised by OWASP VIT Chennai and Android club VIT Chennai",
+        "tech": [
+            "CSS",
+            "HTML",
+            "Java"
+        ],
+        "github": "https://github.com/PranavViswanathan/tetraflip-hackathon",
+        "demo": ""
+    },
+    {
+        "display": false,
+        "title": "VITrendzChennaiWebsite",
+        "description": "",
+        "tech": [
+            "CSS",
+            "HTML",
+            "JavaScript"
+        ],
+        "github": "https://github.com/PranavViswanathan/VITrendzChennaiWebsite",
+        "demo": ""
+    }
+]

@@ -75,7 +75,7 @@
 <body>
 
     <nav id="navbar">
-        <span id="nav-name" class="nav-name"></span>
+        <span id="nav-name" class="nav-name">Pranav Viswanathan</span>
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
@@ -96,9 +96,9 @@
     <section id="hero">
         <div class="hero-inner">
             <div class="hero-line" id="hero-greeting">Hello, I'm</div>
-            <h1 class="hero-name" id="hero-name"></h1>
-            <div class="hero-line hero-title" id="hero-title"></div>
-            <p class="hero-tagline" id="hero-tagline"></p>
+            <h1 class="hero-name" id="hero-name">Pranav Viswanathan</h1>
+            <div class="hero-line hero-title" id="hero-title">Software &amp; ML Engineer</div>
+            <p class="hero-tagline" id="hero-tagline">Building intelligent systems that scale.</p>
             <div class="hero-cta">
                 <a href="#projects" class="btn btn-primary">View Work</a>
                 <div class="resume-dropdown">
@@ -132,15 +132,15 @@
         <div class="section-inner">
             <h2 class="section-label reveal-label">About</h2>
             <div class="about-grid">
-                <p class="about-bio reveal-up" id="about-bio"></p>
+                <p class="about-bio reveal-up" id="about-bio">CS grad student at Northeastern, shipping systems that sit at the intersection of ML, distributed infrastructure, and full-stack engineering. I've built local-first RAG pipelines, MLOps platforms, multi-drone coordination systems, and real-time video processors — things that work end-to-end, not just in a notebook. I care about the full stack: the model, the pipeline that feeds it, the infra that runs it, and the interface that makes it useful.</p>
                 <div class="about-meta">
                     <div class="meta-item reveal-up" style="--d:0.1s">
                         <span class="meta-key">Education</span>
-                        <span class="meta-val" id="about-edu"></span>
+                        <span class="meta-val" id="about-edu">Northeastern University — M.S. Computer Science, May 2026 · Vellore Institute of Technology — B.Tech Computer Science &amp; Engineering (Cyber-Physical Systems)</span>
                     </div>
                     <div class="meta-item reveal-up" style="--d:0.2s">
                         <span class="meta-key">Location</span>
-                        <span class="meta-val" id="about-loc"></span>
+                        <span class="meta-val" id="about-loc">Boston, MA</span>
                     </div>
                     <div class="meta-item reveal-up" style="--d:0.3s">
                         <span class="meta-key">Status</span>
@@ -155,7 +155,48 @@
     <section id="projects" class="section">
         <div class="section-inner">
             <h2 class="section-label reveal-label">Projects</h2>
-            <div class="projects-grid" id="projects-grid"></div>
+            <div class="projects-grid" id="projects-grid">
+                <div class="project-card" style="--tx:-90px;--ty:50px;--rot:-3deg;--d:0s">
+                    <div class="project-title">CaduceusAI</div>
+                    <div class="project-desc">A local-first, three-tier medical AI platform built on FastAPI microservices and Next.js 14, with on-device LLM inference via Ollama over an async httpx client with rule-based fallback. Features Redis-cached risk assessments, a clinician feedback loop architected to feed a LoRA fine-tuning pipeline via Hugging Face PEFT, cookie-first HS256 JWT auth, AES-256 PHI encryption at rest, and an append-only audit log.</div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span><span class="tech-tag">FastAPI</span><span class="tech-tag">Next.js</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Redis</span><span class="tech-tag">Docker</span>
+                    </div>
+                    <div class="project-links"><a class="project-link" href="https://github.com/PranavViswanathan/CaduceusAI" target="_blank" rel="noopener">GitHub &rarr;</a></div>
+                </div>
+                <div class="project-card" style="--tx:0px;--ty:100px;--rot:0deg;--d:0.08s">
+                    <div class="project-title">OmniRAG</div>
+                    <div class="project-desc">A decentralized RAG architecture leveraging local LLM inference via Ollama. Orchestrates asynchronous web-scraping, session-isolated vector persistence, and real-time knowledge synthesis, visualized through an immersive React-driven semantic graph providing high-fidelity technical insights.</div>
+                    <div class="project-tech">
+                        <span class="tech-tag">TypeScript</span><span class="tech-tag">Ollama</span><span class="tech-tag">LanceDB</span><span class="tech-tag">Docker</span><span class="tech-tag">RAG</span><span class="tech-tag">Vector Database</span>
+                    </div>
+                    <div class="project-links"><a class="project-link" href="https://github.com/PranavViswanathan/OmniRAG" target="_blank" rel="noopener">GitHub &rarr;</a></div>
+                </div>
+                <div class="project-card" style="--tx:90px;--ty:50px;--rot:3deg;--d:0.16s">
+                    <div class="project-title">Rebalance-AI</div>
+                    <div class="project-desc">An end-to-end MLOps platform leveraging distributed orchestration, experiment tracking, and containerized microservices to deliver real-time demand forecasting for Boston's Bluebikes network. Implements a multi-algorithm ensemble architecture with automated hyperparameter tuning.</div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span><span class="tech-tag">Apache Airflow</span><span class="tech-tag">MLflow</span><span class="tech-tag">Docker</span><span class="tech-tag">Machine Learning</span><span class="tech-tag">scikit-learn</span>
+                    </div>
+                    <div class="project-links"><a class="project-link" href="https://github.com/PranavViswanathan/Rebalance-AI" target="_blank" rel="noopener">GitHub &rarr;</a></div>
+                </div>
+                <div class="project-card" style="--tx:-90px;--ty:50px;--rot:-3deg;--d:0s">
+                    <div class="project-title">MERC</div>
+                    <div class="project-desc">A graph-based deep learning model for utterance-level emotion recognition in dialogue. MERC fuses text (RoBERTa), audio (eGeMAPS), and video features through cross-modal attention and a relational temporal graph neural network, trained and evaluated on the unified MELD + IEMOCAP benchmark.</div>
+                    <div class="project-tech">
+                        <span class="tech-tag">PyTorch</span><span class="tech-tag">Python</span><span class="tech-tag">RoBERTa</span><span class="tech-tag">PyTorch Geometric</span><span class="tech-tag">YAML</span>
+                    </div>
+                    <div class="project-links"><a class="project-link" href="https://github.com/PranavViswanathan/MERC" target="_blank" rel="noopener">GitHub &rarr;</a></div>
+                </div>
+                <div class="project-card" style="--tx:0px;--ty:100px;--rot:0deg;--d:0.08s">
+                    <div class="project-title">SwarmCoordinator</div>
+                    <div class="project-desc">Distributed drone swarm coordination system with Raft consensus for fault tolerance, FastAPI backend with physics simulation, and real-time 3D visualization using Three.js. Features leader election, formation control, collision avoidance via Artificial Potential Fields, and WebSocket streaming at 10Hz.</div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span><span class="tech-tag">FastAPI</span><span class="tech-tag">Raft Consensus</span><span class="tech-tag">Three.js</span><span class="tech-tag">WebSocket</span><span class="tech-tag">Docker</span>
+                    </div>
+                    <div class="project-links"><a class="project-link" href="https://github.com/PranavViswanathan/SwarmCoordinator" target="_blank" rel="noopener">GitHub &rarr;</a></div>
+                </div>
+            </div>
         </div>
     </section>
 

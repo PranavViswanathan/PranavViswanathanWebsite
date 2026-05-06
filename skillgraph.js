@@ -28,7 +28,7 @@
     const t = tech.toLowerCase().trim();
     const s = skill.toLowerCase().trim();
     if (t === s) return true;
-    if (t.includes(s) || s.includes(t)) return true;
+    if (t.length > 2 && s.length > 2 && (t.includes(s) || s.includes(t))) return true;
     const tw = t.split(/[\s\/\-,.()]+/).filter(w => w.length > 3);
     const sw = s.split(/[\s\/\-,.()]+/).filter(w => w.length > 3);
     return tw.some(a => sw.some(b => a === b));

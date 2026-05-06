@@ -22,6 +22,21 @@
       "demo": ""
     },
     {
+        "display": true,
+        "title": "MERC",
+        "description": "A graph-based deep learning model for utterance-level emotion recognition in dialogue. MERC fuses text (RoBERTa), audio (eGeMAPS), and video features through cross-modal attention and a relational temporal graph neural network, trained and evaluated on the unified MELD + IEMOCAP benchmark.",
+        "tech": [
+            "CUDA",
+            "Docker",
+            "Dockerfile",
+            "Jupyter Notebook",
+            "Python",
+            "YAML"
+        ],
+        "github": "https://github.com/PranavViswanathan/MERC",
+        "demo": ""
+    },
+    {
       "display": true,
       "title": "OmniRAG",
       "description": "OmniRAG is a decentralized RAG architecture leveraging local LLM inference via Ollama. It orchestrates asynchronous web-scraping, session-isolated vector persistence, and real-time knowledge synthesis, all visualized through an immersive, React-driven semantic graph providing high-fidelity technical insights.",

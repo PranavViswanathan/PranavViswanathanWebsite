@@ -11,13 +11,16 @@
                 "SQL",
                 "C/C++",
                 "R",
-                "Shell Scripting"
+                "Shell Scripting",
+                "YAML"
             ]
         },
         {
             "label": "ML / AI",
             "skills": [
                 "PyTorch",
+                "RoBERTa",
+                "PyTorch Geometric",
                 "scikit-learn",
                 "XGBoost",
                 "LightGBM",
