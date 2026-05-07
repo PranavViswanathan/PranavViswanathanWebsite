@@ -206,6 +206,20 @@
       ],
       "github": "https://github.com/PranavViswanathan/Image-Manipulation-Toolkit",
       "demo": ""
+    },
+    {
+        "display": true,
+        "title": "ctxbundle",
+        "description": "Bundle a code repository into a single LLM-ready text file",
+        "tech": [
+            "Makefile",
+            "Next.js",
+            "Python",
+            "Regex",
+            "YAML"
+        ],
+        "github": "https://github.com/PranavViswanathan/ctxbundle",
+        "demo": ""
     }
   ]
 }

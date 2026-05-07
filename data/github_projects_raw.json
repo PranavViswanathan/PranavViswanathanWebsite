@@ -62,6 +62,20 @@
     },
     {
         "display": false,
+        "title": "ctxbundle",
+        "description": "Bundle a code repository into a single LLM-ready text file",
+        "tech": [
+            "Makefile",
+            "Next.js",
+            "Python",
+            "Regex",
+            "YAML"
+        ],
+        "github": "https://github.com/PranavViswanathan/ctxbundle",
+        "demo": ""
+    },
+    {
+        "display": false,
         "title": "DocNextDoorFlask",
         "description": "",
         "tech": [
