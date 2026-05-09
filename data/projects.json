@@ -22,6 +22,22 @@
       "demo": ""
     },
     {
+        "display": false,
+        "title": "DistroSim",
+        "description": "A browser-based distributed-systems simulator with chaos engineering. Build topologies on a canvas, watch traffic flow tick by tick, then break things and see how the metrics react.",
+        "tech": [
+            "Docker",
+            "Dockerfile",
+            "Express",
+            "HTML",
+            "Makefile",
+            "React",
+            "TypeScript"
+        ],
+        "github": "https://github.com/PranavViswanathan/DistroSim",
+        "demo": "https://distrosim.onrender.com/"
+    },
+    {
         "display": true,
         "title": "MERC",
         "description": "A graph-based deep learning model for utterance-level emotion recognition in dialogue. MERC fuses text (RoBERTa), audio (eGeMAPS), and video features through cross-modal attention and a relational temporal graph neural network, trained and evaluated on the unified MELD + IEMOCAP benchmark.",
