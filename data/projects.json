@@ -22,7 +22,7 @@
       "demo": ""
     },
     {
-        "display": false,
+        "display": true,
         "title": "DistroSim",
         "description": "A browser-based distributed-systems simulator with chaos engineering. Build topologies on a canvas, watch traffic flow tick by tick, then break things and see how the metrics react.",
         "tech": [
