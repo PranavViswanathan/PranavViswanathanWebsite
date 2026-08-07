@@ -116,7 +116,7 @@
         line(),
         line(d.about.bio),
         line(),
-        line('Status  →  Open to new grad roles (May 2026)', 'tc-accent'),
+        line('Status  →  GenAI Engineer at Citi', 'tc-accent'),
         line()
       );
     },
