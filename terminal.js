@@ -62,7 +62,7 @@
     whoami          Quick intro
     about           Full bio
     education       Academic background
-    experience      What I'm looking for
+    experience      Work history
     skills          Tech stack by category
     projects        All projects with index
     open <n>        Open project #n on GitHub
@@ -143,17 +143,18 @@
     experience() {
       print(
         line(),
-        line("What I'm Looking For", 'tc-accent tc-bold'),
-        line('────────────────────', 'tc-dim'),
-        line('  Role      →  New Grad SWE / ML Engineer'),
-        line('  Start     →  May 2026'),
-        line('  Location  →  Open to relocation'),
-        line('  Type      →  Full-time'),
+        line('Experience', 'tc-accent tc-bold'),
+        line('──────────', 'tc-dim'),
+        line('  Junior GenAI Engineer — Citi', 'tc-bold'),
+        line('  Aug 2026 – Present', 'tc-muted'),
+        line('    · Building AI-driven solutions within institutional risk technology'),
         line(),
-        line('I love building:', 'tc-accent'),
-        line('  → End-to-end ML systems with real-world impact'),
-        line('  → Distributed infrastructure at scale'),
-        line('  → Anything that merges AI + systems thinking'),
+        line('  Software Development Intern — NergyLive', 'tc-bold'),
+        line('  May 2023 – Jul 2023', 'tc-muted'),
+        line('    · Built real-time HVAC anomaly detection with isolation forests and'),
+        line('      statistical process control, processing 10K+ sensor readings/min'),
+        line('      at sub-100ms latency'),
+        line('    · Deployed to production, cutting maintenance costs by 15%'),
         line()
       );
     },
@@ -614,7 +615,8 @@
         return print(line(`git: '${args[0] || ''}' is not a recognized git command`, 'tc-error'));
       }
       const entries = [
-        { hash: 'a3f9c12', ref: '(HEAD -> main)', msg: 'built OmniRAG local-first RAG system' },
+        { hash: 'd4a71e6', ref: '(HEAD -> main)', msg: 'joined Citi as Junior GenAI Engineer' },
+        { hash: 'a3f9c12', ref: null,             msg: 'built OmniRAG local-first RAG system' },
         { hash: '7b2e841', ref: null,             msg: 'joined Northeastern MS Computer Science' },
         { hash: 'f91da03', ref: null,             msg: 'interned at NergyLive, built real-time HVAC anomaly detection' },
         { hash: '3c8b120', ref: null,             msg: 'graduated Vellore Institute of Technology' },
@@ -672,7 +674,7 @@
         rich(`  <span class="tc-dim">Role:</span>         Software &amp; ML Engineer`),
         rich(`  <span class="tc-dim">Org:</span>          Northeastern University (MS CS, May 2026)`),
         rich(`  <span class="tc-dim">Location:</span>     Boston, MA`),
-        rich(`  <span class="tc-dim">Status:</span>       <span class="tc-accent tc-bold">AVAILABLE</span> — actively seeking new grad roles`),
+        rich(`  <span class="tc-dim">Status:</span>       <span class="tc-accent tc-bold">EMPLOYED</span> — Junior GenAI Engineer @ Citi`),
         rich(`  <span class="tc-dim">Skills:</span>       Python, Go, Java, PyTorch, AWS, Docker`),
         rich(`  <span class="tc-dim">Contact:</span>      pvvisthn@gmail.com`),
         rich(`  <span class="tc-dim">LinkedIn:</span>     linkedin.com/in/pranav-viswanathan-7976711b7`),
